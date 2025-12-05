@@ -2,14 +2,17 @@
 
 @theme {
   /* SHADCN / MINIMALIST MONOCHROME PALETTE (Zinc Based) */
+  --color-cyber-black: #09090b;
+  --color-cyber-dark: #18181b;
+  --color-cyber-gray: #27272a;
+  --color-cyber-text: #fafafa;
+  --color-cyber-muted: #a1a1aa;
+  
   --color-background: #09090b;
   --color-foreground: #fafafa;
   
   --color-card: #09090b;
   --color-card-foreground: #fafafa;
-  
-  --color-popover: #09090b;
-  --color-popover-foreground: #fafafa;
   
   --color-primary: #fafafa;
   --color-primary-foreground: #18181b;
@@ -23,20 +26,11 @@
   --color-accent: #27272a;
   --color-accent-foreground: #fafafa;
   
-  --color-destructive: #7f1d1d;
-  --color-destructive-foreground: #fafafa;
-  
   --color-border: #27272a;
   --color-input: #27272a;
   --color-ring: #d4d4d8;
 
-  /* Replacing Neon with Monochrome Accents */
-  --color-neon-blue: #fafafa;   /* White */
-  --color-neon-orange: #d4d4d8; /* Light Gray */
-  --color-neon-green: #52525b;  /* Dark Gray/Zinc-600 for status dots */
-  --color-neon-purple: #e4e4e7; /* Zinc-200 */
-
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
@@ -46,6 +40,10 @@
   --color-foreground: #fafafa;
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
+}
+
+html {
+  background-color: #09090b;
 }
 
 * {
