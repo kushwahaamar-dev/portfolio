@@ -1,13 +1,9 @@
 import { useRef, useEffect } from 'react';
 import { resumeData } from '../../data/resume';
 import { Code2, Brain, Database, Rocket, GraduationCap, Trophy, Target } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const highlights = [
-  { icon: GraduationCap, label: "GPA", value: resumeData.education.gpa, color: "#ffffff" },
+  { icon: Code2, label: "Projects Shipped", value: "8+", color: "#ffffff" },
   { icon: Trophy, label: "Hackathon Wins", value: "3x", color: "#e4e4e7" },
   { icon: Target, label: "Research Focus", value: "BCI", color: "#d4d4d8" },
 ];
@@ -43,22 +39,41 @@ export const About = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Fade in animations
-      gsap.from(".about-fade", {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 75%",
-        },
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.12,
-        ease: "power3.out"
-      });
-    }, containerRef);
+    if (typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+      if (reduceMotion || coarsePointer) return;
+    }
 
-    return () => ctx.revert();
+    type GsapContext = { revert: () => void };
+    let ctx: GsapContext | null = null;
+    let cancelled = false;
+
+    (async () => {
+      const gsap = (await import('gsap')).default;
+      const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+      if (cancelled) return;
+
+      gsap.registerPlugin(ScrollTrigger);
+      ctx = gsap.context(() => {
+        gsap.from(".about-fade", {
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 75%",
+          },
+          y: 60,
+          opacity: 0,
+          duration: 1,
+          stagger: 0.12,
+          ease: "power3.out"
+        });
+      }, containerRef);
+    })();
+
+    return () => {
+      cancelled = true;
+      ctx?.revert();
+    };
   }, []);
 
   return (

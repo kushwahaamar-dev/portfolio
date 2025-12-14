@@ -28,6 +28,8 @@ export interface ResumeData {
     email: string;
     location: string;
     linkedin: string;
+    x: string;
+    instagram: string;
     phone: string;
     summary: string;
   };

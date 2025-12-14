@@ -1,6 +1,17 @@
 import { useState, useRef, useEffect } from 'react';
 import { resumeData } from '../../data/resume';
-import { Mail, Linkedin, Github, Send, CheckCircle, Loader2, AlertCircle, ArrowUpRight, Copy, Check } from 'lucide-react';
+import { Mail, Linkedin, Github, Send, CheckCircle, Loader2, AlertCircle, ArrowUpRight, Copy, Check, Instagram } from 'lucide-react';
+
+const XIcon = ({ className }: { className?: string }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    aria-hidden="true" 
+    className={className} 
+    fill="currentColor"
+  >
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -18,6 +29,12 @@ export const Contact = () => {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
+    if (typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+      if (reduceMotion || coarsePointer) return;
+    }
+
     const ctx = gsap.context(() => {
       gsap.from(".contact-fade", {
         scrollTrigger: {
@@ -96,10 +113,24 @@ export const Contact = () => {
       color: '#0A66C2' // Keep brand color or change to white? Let's keep brand for recognition or white for strict minimalism. White.
     },
     { 
+      icon: XIcon, 
+      label: 'X (Twitter)', 
+      value: 'Follow me',
+      href: resumeData.personal.x,
+      color: '#ffffff'
+    },
+    { 
+      icon: Instagram, 
+      label: 'Instagram', 
+      value: 'Follow me',
+      href: resumeData.personal.instagram,
+      color: '#E1306C'
+    },
+    { 
       icon: Github, 
       label: 'GitHub', 
       value: 'View my code',
-      href: 'https://github.com/amarkushwaha',
+      href: 'https://github.com/kushwahaamar-dev',
       color: '#ffffff'
     }
   ];

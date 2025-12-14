@@ -81,6 +81,7 @@ a, button {
 .cyber-grid {
   background-size: 24px 24px;
   background-image: radial-gradient(circle, #27272a 1px, transparent 1px);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
   opacity: 0.3;
 }
@@ -257,6 +258,7 @@ section {
 .marquee-container {
   overflow: hidden;
   white-space: nowrap;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 

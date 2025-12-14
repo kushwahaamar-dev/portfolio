@@ -5,8 +5,10 @@ export const resumeData: ResumeData = {
     name: "Amar Kushwaha",
     title: "CS Student & Builder",
     email: "amkushwa@ttu.edu",
-    location: "Lubbock, TX · Open to Austin & SF",
+    location: "Texas, USA",
     linkedin: "https://www.linkedin.com/in/kushwaha-amar",
+    x: "https://x.com/amarkushwaha__",
+    instagram: "https://www.instagram.com/_a__m_a_r_/",
     phone: "806-559-5600",
     summary: "I build AI systems that work. Currently researching brain-computer interfaces at Texas Tech while shipping production-grade LLM applications. When I'm not in the lab, I'm probably winning hackathons."
   },
@@ -29,13 +31,22 @@ export const resumeData: ResumeData = {
   ],
   projects: [
     {
+      title: "TruthBlink ",
+      description: "A browser extension and dApp that bridges Web2 social media with Web3 prediction markets using Solana Blinks. Place USDC bets on viral claims directly from Twitter/X.",
+      tech: ["Solana", "Next.js", "Anchor", "Plasmo", "Gemini 1.5 Flash"],
+      category: "Web3",
+      featured: true,
+      link: "https://github.com/kushwahaamar-dev/truth",
+      github: "https://github.com/kushwahaamar-dev/truth"
+    },
+    {
       title: "Torpe Hitachi Classifier",
       description: "Enterprise-grade AI document classification platform using Google Gemini 2.0 Flash. Integrates RAG/CAG pipelines and Solana blockchain for immutable audit trails.",
       tech: ["Gemini 2.0", "Solana", "RAG", "Python", "React"],
       category: "AI/ML",
       featured: true,
-      link: "https://github.com/amarkushwa/doc-classifier", 
-      github: "https://github.com/amarkushwa/doc-classifier"
+      link: "https://github.com/kushwahaamar-dev/doc-classifier", 
+      github: "https://github.com/kushwahaamar-dev/doc-classifier"
     },
     {
       title: "LogX+ AI Platform",
@@ -43,8 +54,8 @@ export const resumeData: ResumeData = {
       tech: ["React", "Gemini API", "TF-IDF", "LocalStorage"],
       category: "Full Stack",
       featured: true,
-      link: "https://github.com/amarkushwaha2005/logx-",
-      github: "https://github.com/amarkushwaha2005/logx-"
+      link: "https://github.com/kushwahaamar-dev/logx-",
+      github: "https://github.com/kushwahaamar-dev/logx-"
     },
     {
       title: "BCI Signal Analysis",
@@ -52,8 +63,8 @@ export const resumeData: ResumeData = {
       tech: ["Python", "EEG", "Scikit-learn", "MFDFA", "LDA"],
       category: "Research",
       featured: true,
-      link: "https://github.com/amarkushwaha2005/bci_eeg_mfdfa",
-      github: "https://github.com/amarkushwaha2005/bci_eeg_mfdfa"
+      link: "https://github.com/kushwahaamar-dev/bci_eeg_mfdfa",
+      github: "https://github.com/kushwahaamar-dev/bci_eeg_mfdfa"
     },
     {
       title: "Website RAG Query System",
@@ -61,8 +72,8 @@ export const resumeData: ResumeData = {
       tech: ["Streamlit", "LangChain", "FAISS", "Ollama"],
       category: "AI/ML",
       featured: false,
-      link: "http://github.com/amarkushwaha2005/WebRAG-/",
-      github: "http://github.com/amarkushwaha2005/WebRAG-/"
+      link: "http://github.com/kushwahaamar-dev/WebRAG-/",
+      github: "http://github.com/kushwahaamar-dev/WebRAG-/"
     }
   ],
   skills: [
