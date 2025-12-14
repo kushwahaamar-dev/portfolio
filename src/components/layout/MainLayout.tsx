@@ -39,17 +39,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
       typeof window.matchMedia === 'function' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    type NetworkInformation = { saveData?: boolean; effectiveType?: string };
-    const connection = (navigator as unknown as { connection?: NetworkInformation }).connection;
-
-    const saveData = Boolean(connection?.saveData);
-    const effectiveType = connection?.effectiveType;
-    const slowNetwork =
-      typeof effectiveType === 'string' &&
-      ['slow-2g', '2g', '3g'].includes(effectiveType);
-
     const deviceMemory = (navigator as unknown as { deviceMemory?: number }).deviceMemory;
-    const lowMemory = typeof deviceMemory === 'number' && deviceMemory <= 4;
 
     const cores = navigator.hardwareConcurrency;
     // Allow more devices: only disable if we are strictly sure it's very low end (<= 2 cores)
