@@ -224,7 +224,7 @@ export const Projects = () => {
             More on GitHub
           </p>
           <a 
-            href="https://github.com/amarkushwaha?tab=repositories"
+            href="https://github.com/kushwahaamar-dev?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-zinc-700 text-white hover:bg-zinc-800 transition-colors font-medium"
