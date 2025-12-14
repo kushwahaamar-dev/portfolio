@@ -57,11 +57,12 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
     const lowMemory = typeof deviceMemory === 'number' && deviceMemory <= 4;
 
     const cores = navigator.hardwareConcurrency;
-    const lowCores = typeof cores === 'number' && cores <= 4;
+    const lowCores = typeof cores === 'number' && cores < 4; // Only disable on dual-core or less
 
     // Default: keep mobile fast by skipping WebGL + postprocessing.
+    // Allow coarse pointer (touch devices) as long as they are powerful enough
     const shouldEnableWebGL =
-      !prefersReducedMotion && !isCoarsePointer && !saveData && !slowNetwork && !lowMemory && !lowCores;
+      !prefersReducedMotion && !saveData && !slowNetwork && !lowMemory && !lowCores;
 
     if (!shouldEnableWebGL) return;
 
