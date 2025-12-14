@@ -14,7 +14,7 @@ export const Hero = () => {
       setNameText(
         finalText
           .split("")
-          .map((letter, index) => {
+          .map((_letter, index) => {
             if (index < iterations) {
               return finalText[index];
             }
