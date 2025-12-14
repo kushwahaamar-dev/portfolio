@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 
 export const CyberBackground = () => {
   return (
-    <div className="fixed inset-0 z-0">
+    <div className="fixed inset-0 z-0 pointer-events-none">
       <Canvas 
         camera={{ position: [0, 0, 1.5] }}
         gl={{ 

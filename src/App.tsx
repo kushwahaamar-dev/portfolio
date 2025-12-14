@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { Analytics } from "@vercel/analytics/react"
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { MainLayout } from './components/layout/MainLayout';
 import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
@@ -7,22 +8,59 @@ import { Projects } from './components/sections/Projects';
 import { Experience } from './components/sections/Experience';
 import { Contact } from './components/sections/Contact';
 import { CustomCursor } from './components/ui/CustomCursor';
-import { ArrowUp, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, Mail, Instagram } from 'lucide-react';
+
+const XIcon = ({ className }: { className?: string }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    aria-hidden="true" 
+    className={className} 
+    fill="currentColor"
+  >
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 import { resumeData } from './data/resume';
 
 function App() {
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const scrollProgressRef = useRef<HTMLDivElement>(null);
+  const lastShowRef = useRef(false);
+
+  const shouldShowCustomCursor = useMemo(() => {
+    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return false;
+    // Only show on desktop-like pointers.
+    return window.matchMedia('(pointer: fine)').matches;
+  }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+
+    const update = () => {
+      ticking = false;
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (window.scrollY / totalHeight) * 100;
-      setScrollProgress(progress);
-      setShowBackToTop(window.scrollY > 500);
+      const raw = totalHeight > 0 ? window.scrollY / totalHeight : 0;
+      const progress = Math.max(0, Math.min(1, raw));
+
+      if (scrollProgressRef.current) {
+        scrollProgressRef.current.style.transform = `scaleX(${progress})`;
+      }
+
+      const shouldShow = window.scrollY > 500;
+      if (shouldShow !== lastShowRef.current) {
+        lastShowRef.current = shouldShow;
+        setShowBackToTop(shouldShow);
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -35,10 +73,12 @@ function App() {
       {/* Scroll Progress Bar */}
       <div 
         id="scroll-progress" 
-        style={{ transform: `scaleX(${scrollProgress / 100})` }}
+        ref={scrollProgressRef}
       />
 
-      <CustomCursor />
+      {shouldShowCustomCursor && <CustomCursor />}
+      
+      <Analytics />
       
       <MainLayout>
         <Hero />
@@ -109,7 +149,25 @@ function App() {
                     <Linkedin className="w-5 h-5" />
         </a>
                   <a 
-                    href="https://github.com/amarkushwaha"
+                    href={resumeData.personal.x}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-lg bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition-all"
+                    title="X (Twitter)"
+                  >
+                    <XIcon className="w-5 h-5" />
+                  </a>
+                  <a 
+                    href={resumeData.personal.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-lg bg-white/5 text-gray-400 hover:text-[#E1306C] hover:bg-[#E1306C]/10 transition-all"
+                    title="Instagram"
+                  >
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                  <a 
+                    href="https://github.com/kushwahaamar-dev"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 rounded-lg bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition-all"

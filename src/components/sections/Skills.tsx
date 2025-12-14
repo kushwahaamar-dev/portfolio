@@ -1,13 +1,9 @@
 import { useMemo, useRef, useEffect } from 'react';
 import { resumeData } from '../../data/resume';
 import type { Skill } from '../../types';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Code2, Cpu, Globe, Wrench } from 'lucide-react';
+import { type LucideIcon, Code2, Cpu, Globe, Wrench } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
-
-const categoryConfig: Record<string, { icon: any; color: string; label: string }> = {
+const categoryConfig: Record<string, { icon: LucideIcon; color: string; label: string }> = {
   'Languages': { icon: Code2, color: '#ffffff', label: 'Core Languages' },
   'AI/ML': { icon: Cpu, color: '#e4e4e7', label: 'AI & Intelligence' },
   'Web': { icon: Globe, color: '#d4d4d8', label: 'Web Technologies' },
@@ -27,32 +23,52 @@ export const Skills = () => {
   }, []);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".skill-header", {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out"
-      });
+    if (typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+      if (reduceMotion || coarsePointer) return;
+    }
 
-      gsap.from(".tech-group", {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 70%",
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out"
-      });
-    }, containerRef);
+    type GsapContext = { revert: () => void };
+    let ctx: GsapContext | null = null;
+    let cancelled = false;
 
-    return () => ctx.revert();
+    (async () => {
+      const gsap = (await import('gsap')).default;
+      const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+      if (cancelled) return;
+
+      gsap.registerPlugin(ScrollTrigger);
+      ctx = gsap.context(() => {
+        gsap.from(".skill-header", {
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 80%",
+          },
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out"
+        });
+
+        gsap.from(".tech-group", {
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 70%",
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power3.out"
+        });
+      }, containerRef);
+    })();
+
+    return () => {
+      cancelled = true;
+      ctx?.revert();
+    };
   }, []);
 
   return (

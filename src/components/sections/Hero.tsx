@@ -6,19 +6,63 @@ import { resumeData } from '../../data/resume';
 export const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [nameText, setNameText] = useState(resumeData.personal.name.split(' ')[0]);
+
+  const scrambleText = (finalText: string) => {
+    let iterations = 0;
+    const interval = setInterval(() => {
+      setNameText(
+        finalText
+          .split("")
+          .map((letter, index) => {
+            if (index < iterations) {
+              return finalText[index];
+            }
+            return "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[Math.floor(Math.random() * 26)];
+          })
+          .join("")
+      );
+      
+      if (iterations >= finalText.length) {
+        clearInterval(interval);
+      }
+      
+      iterations += 1 / 3;
+    }, 30);
+  };
 
   useEffect(() => {
+    // Initial scramble
+    scrambleText(resumeData.personal.name.split(' ')[0]);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (typeof window.matchMedia === 'function' && window.matchMedia('(pointer: coarse)').matches) return;
+
+    let raf: number | null = null;
+    let next = { x: 0, y: 0 };
+
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
       const { innerWidth, innerHeight } = window;
-      setMousePosition({
+      next = {
         x: (clientX / innerWidth - 0.5) * 20,
         y: (clientY / innerHeight - 0.5) * 20
+      };
+
+      if (raf != null) return;
+      raf = window.requestAnimationFrame(() => {
+        raf = null;
+        setMousePosition(next);
       });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (raf != null) window.cancelAnimationFrame(raf);
+    };
   }, []);
 
   useEffect(() => {
@@ -93,9 +137,12 @@ export const Hero = () => {
             {/* Main heading - Large and impactful */}
             <div className="space-y-2 mb-8">
               <div className="overflow-hidden">
-                <h1 className="hero-line text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter">
+                <h1 
+                  className="hero-line text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter cursor-default"
+                  onMouseEnter={() => scrambleText(resumeData.personal.name.split(' ')[0])}
+                >
                   <span className="text-white">Hi, I'm </span>
-                  <span className="text-gradient">{resumeData.personal.name.split(' ')[0]}</span>
+                  <span className="text-gradient min-w-[3ch] inline-block">{nameText}</span>
                 </h1>
               </div>
               <div className="overflow-hidden">

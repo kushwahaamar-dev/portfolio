@@ -1,52 +1,68 @@
 import { useRef, useEffect } from 'react';
 import { resumeData } from '../../data/resume';
 import { Briefcase, Calendar, MapPin, ArrowUpRight } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const Experience = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".exp-header", {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 75%",
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out"
-      });
+    if (typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+      if (reduceMotion || coarsePointer) return;
+    }
 
-      gsap.from(".exp-card", {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 65%",
-        },
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power3.out"
-      });
+    type GsapContext = { revert: () => void };
+    let ctx: GsapContext | null = null;
+    let cancelled = false;
 
-      gsap.from(".timeline-line", {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 70%",
-        },
-        scaleY: 0,
-        transformOrigin: "top",
-        duration: 1.5,
-        ease: "power3.out"
-      });
-    }, containerRef);
+    (async () => {
+      const gsap = (await import('gsap')).default;
+      const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+      if (cancelled) return;
 
-    return () => ctx.revert();
+      gsap.registerPlugin(ScrollTrigger);
+      ctx = gsap.context(() => {
+        gsap.from(".exp-header", {
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 75%",
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out"
+        });
+
+        gsap.from(".exp-card", {
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 65%",
+          },
+          y: 60,
+          opacity: 0,
+          duration: 1,
+          stagger: 0.2,
+          ease: "power3.out"
+        });
+
+        gsap.from(".timeline-line", {
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 70%",
+          },
+          scaleY: 0,
+          transformOrigin: "top",
+          duration: 1.5,
+          ease: "power3.out"
+        });
+      }, containerRef);
+    })();
+
+    return () => {
+      cancelled = true;
+      ctx?.revert();
+    };
   }, []);
 
   return (
