@@ -39,11 +39,6 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
       typeof window.matchMedia === 'function' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const isCoarsePointer =
-      typeof window !== 'undefined' &&
-      typeof window.matchMedia === 'function' &&
-      window.matchMedia('(pointer: coarse)').matches;
-
     type NetworkInformation = { saveData?: boolean; effectiveType?: string };
     const connection = (navigator as unknown as { connection?: NetworkInformation }).connection;
 
