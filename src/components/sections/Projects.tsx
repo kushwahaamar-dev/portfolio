@@ -201,7 +201,7 @@ export const Projects = () => {
             </p>
           </div>
           <a 
-            href="https://github.com/amarkushwaha"
+            href="https://github.com/kushwahaamar-dev"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-zinc-200 text-black transition-all font-medium"
