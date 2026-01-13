@@ -22,11 +22,11 @@ export const Hero = () => {
           })
           .join("")
       );
-      
+
       if (iterations >= finalText.length) {
         clearInterval(interval);
       }
-      
+
       iterations += 1 / 3;
     }, 30);
   };
@@ -68,27 +68,27 @@ export const Hero = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
-      
+
       // Staggered reveal animation
-      tl.fromTo(".hero-line", 
-        { y: 100, opacity: 0 }, 
+      tl.fromTo(".hero-line",
+        { y: 100, opacity: 0 },
         { y: 0, opacity: 1, duration: 1.2, stagger: 0.15 }
       )
-      .fromTo(".hero-subtitle",
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1 },
-        "-=0.6"
-      )
-      .fromTo(".hero-cta",
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, stagger: 0.1 },
-        "-=0.4"
-      )
-      .fromTo(".hero-scroll",
-        { opacity: 0 },
-        { opacity: 1, duration: 1 },
-        "-=0.2"
-      );
+        .fromTo(".hero-subtitle",
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "-=0.6"
+        )
+        .fromTo(".hero-cta",
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.8, stagger: 0.1 },
+          "-=0.4"
+        )
+        .fromTo(".hero-scroll",
+          { opacity: 0 },
+          { opacity: 1, duration: 1 },
+          "-=0.2"
+        );
     }, containerRef);
 
     return () => ctx.revert();
@@ -103,16 +103,16 @@ export const Hero = () => {
   };
 
   return (
-    <section 
-      ref={containerRef} 
+    <section
+      ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Animated gradient orbs - Subtle Monochrome */}
-      <div 
+      <div
         className="absolute top-1/4 -left-32 w-96 h-96 bg-white/5 rounded-full blur-[120px] transition-transform duration-1000"
         style={{ transform: `translate(${mousePosition.x * 0.5}px, ${mousePosition.y * 0.5}px)` }}
       />
-      <div 
+      <div
         className="absolute bottom-1/4 -right-32 w-96 h-96 bg-zinc-500/5 rounded-full blur-[120px] transition-transform duration-1000"
         style={{ transform: `translate(${mousePosition.x * -0.5}px, ${mousePosition.y * -0.5}px)` }}
       />
@@ -120,7 +120,7 @@ export const Hero = () => {
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
-          
+
           {/* Text Content */}
           <div className="lg:col-span-8">
             {/* Status indicator */}
@@ -137,7 +137,7 @@ export const Hero = () => {
             {/* Main heading - Large and impactful */}
             <div className="space-y-2 mb-8">
               <div className="overflow-hidden">
-                <h1 
+                <h1
                   className="hero-line text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter cursor-default"
                   onMouseEnter={() => scrambleText(resumeData.personal.name.split(' ')[0])}
                 >
@@ -155,30 +155,30 @@ export const Hero = () => {
 
             {/* Subtitle */}
             <p className="hero-subtitle text-xl md:text-2xl text-zinc-400 max-w-2xl mb-12 leading-relaxed">
-              CS @ <span className="text-white font-medium">Texas Tech</span> · Building 
+              CS @ <span className="text-white font-medium">Texas Tech</span> · Building
               <span className="text-white"> AI that ships</span> · Research in
               <span className="text-zinc-300"> Brain-Computer Interfaces</span>
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center gap-4">
-              <button 
+              <button
                 onClick={scrollToProjects}
                 className="hero-cta btn-primary bg-white text-black hover:bg-zinc-200 border-none"
               >
                 <span>View My Work</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
-              
-              <button 
+
+              <button
                 onClick={scrollToContact}
                 className="hero-cta btn-secondary border-zinc-700 text-white hover:bg-zinc-800 hover:border-zinc-600"
               >
                 <span>Get in Touch</span>
               </button>
 
-              <a 
-                href="https://drive.google.com/uc?export=download&id=15x1jK4om4k-l7p46QovCn3zL55yYcZv7" 
+              <a
+                href="https://drive.google.com/uc?export=download&id=15x1jK4om4k-l7p46QovCn3zL55yYcZv7"
                 target="_blank"
                 rel="noopener noreferrer"
                 download
@@ -195,7 +195,7 @@ export const Hero = () => {
             <div className="hero-cta relative group">
               {/* Background Glow */}
               <div className="absolute -inset-1 bg-gradient-to-r from-white to-zinc-500 opacity-10 blur-lg group-hover:opacity-20 transition-opacity duration-500" />
-              
+
               <div className="relative p-6 rounded-2xl bg-[#09090b] border border-zinc-800 space-y-6">
                 {/* Header */}
                 <div className="flex items-center justify-between border-b border-zinc-800 pb-4">
@@ -229,7 +229,7 @@ export const Hero = () => {
                   <p className="text-xs text-zinc-500 uppercase tracking-wider mb-2">Latest Activity</p>
                   <div className="p-3 rounded-lg bg-zinc-900 border border-zinc-800">
                     <p className="font-mono text-xs text-zinc-400 mb-1">git commit -m</p>
-                    <p className="text-sm text-zinc-300">"feat: pushed truthblink for the MBC hackathon"</p>
+                    <p className="text-sm text-zinc-300">"feat: pushed git0x building something new next"</p>
                   </div>
                 </div>
 
