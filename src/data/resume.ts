@@ -86,7 +86,7 @@ export const resumeData: ResumeData = {
     },
     {
       title: "Git0X Security Scanner",
-      description: "Advanced secret detection tool for Git repositories. Scans codebases for exposed API keys, credentials, and sensitive data patterns.",
+      description: "Shipped! Advanced secret detection tool for Git repositories. Scans codebases for exposed API keys, credentials, and sensitive data. Building something new next.",
       tech: ["React", "TypeScript", "Web Workers", "IndexedDB"],
       category: "DevSecOps",
       featured: false,
