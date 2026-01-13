@@ -9,7 +9,7 @@ export const HoloParticles = (props: ComponentProps<typeof Points>) => {
   // Keep this lightweight: compute once, fewer points.
   const sphere = useMemo(() => {
     const isMobile = typeof window !== 'undefined' && (window.innerWidth < 768 || window.matchMedia('(pointer: coarse)').matches);
-    const count = isMobile ? 500 : 2500; // Significantly reduce particles on mobile
+    const count = isMobile ? 300 : 2500; // Minimal particles on mobile for faster init
     return inSphere(new Float32Array(count * 3), { radius: 1.5 }) as Float32Array;
   }, []);
 

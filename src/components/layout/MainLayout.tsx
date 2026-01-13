@@ -40,15 +40,15 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const deviceMemory = (navigator as unknown as { deviceMemory?: number }).deviceMemory;
-
     const cores = navigator.hardwareConcurrency;
-    // Allow more devices: only disable if we are strictly sure it's very low end (<= 2 cores)
+
+    // Detect mobile/touch devices
+    const isMobile = window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 768;
+
+    // Only disable if very low end (<= 2 cores) or low memory
     const veryLowSpec = (typeof cores === 'number' && cores <= 2) || (typeof deviceMemory === 'number' && deviceMemory < 2);
 
-    // Default: keep mobile fast by skipping WebGL + postprocessing.
-    // Allow coarse pointer (touch devices) as long as they are powerful enough
-    const shouldEnableWebGL =
-      !prefersReducedMotion && !veryLowSpec;
+    const shouldEnableWebGL = !prefersReducedMotion && !veryLowSpec;
 
     if (!shouldEnableWebGL) return;
 
@@ -57,7 +57,9 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
       if (!cancelled) setShowWebGLBackground(true);
     };
 
-    // Defer WebGL init so initial content is interactive sooner.
+    // Defer WebGL init - longer delay on mobile to let main content render first
+    const delay = isMobile ? 3000 : 1200;
+
     type RequestIdleCallback = (cb: () => void, opts?: { timeout?: number }) => number;
     type CancelIdleCallback = (handle: number) => void;
     const { requestIdleCallback, cancelIdleCallback } = window as unknown as {
@@ -66,14 +68,14 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
     };
 
     if (typeof requestIdleCallback === 'function') {
-      const id = requestIdleCallback(start, { timeout: 2000 });
+      const id = requestIdleCallback(start, { timeout: delay });
       return () => {
         cancelled = true;
         cancelIdleCallback?.(id);
       };
     }
 
-    const t = setTimeout(start, 1200);
+    const t = setTimeout(start, delay);
     return () => {
       cancelled = true;
       clearTimeout(t);
@@ -92,13 +94,13 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
       {/* Static CSS Grid Overlay */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         {/* Cinematic Noise Texture */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay" 
-             style={{ 
-               backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` 
-             }} 
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+          }}
         />
         <div className="absolute inset-0 cyber-grid opacity-20"></div>
-        
+
         {/* Ambient Glows */}
         <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-neon-blue/5 rounded-full blur-[150px]"></div>
         <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-neon-orange/5 rounded-full blur-[150px]"></div>
