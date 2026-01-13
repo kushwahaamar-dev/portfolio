@@ -4,7 +4,7 @@ export interface Project {
   tech: string[];
   link?: string;
   github?: string;
-  category: 'AI/ML' | 'Web3' | 'Full Stack' | 'Research';
+  category: 'AI/ML' | 'Web3' | 'Full Stack' | 'Research' | 'DevSecOps';
   featured: boolean;
 }
 

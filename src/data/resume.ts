@@ -45,7 +45,7 @@ export const resumeData: ResumeData = {
       tech: ["Gemini 2.0", "Solana", "RAG", "Python", "React"],
       category: "AI/ML",
       featured: true,
-      link: "https://github.com/kushwahaamar-dev/doc-classifier", 
+      link: "https://github.com/kushwahaamar-dev/doc-classifier",
       github: "https://github.com/kushwahaamar-dev/doc-classifier"
     },
     {
@@ -74,6 +74,33 @@ export const resumeData: ResumeData = {
       featured: false,
       link: "http://github.com/kushwahaamar-dev/WebRAG-/",
       github: "http://github.com/kushwahaamar-dev/WebRAG-/"
+    },
+    {
+      title: "RLM Implementation",
+      description: "Reasoning Language Model implementation with multi-step inference and chain-of-thought capabilities for enhanced AI reasoning.",
+      tech: ["Python", "PyTorch", "Transformers", "LangChain"],
+      category: "AI/ML",
+      featured: false,
+      link: "https://github.com/kushwahaamar-dev/rlms",
+      github: "https://github.com/kushwahaamar-dev/rlms"
+    },
+    {
+      title: "Git0X Security Scanner",
+      description: "Advanced secret detection tool for Git repositories. Scans codebases for exposed API keys, credentials, and sensitive data patterns.",
+      tech: ["React", "TypeScript", "Web Workers", "IndexedDB"],
+      category: "DevSecOps",
+      featured: false,
+      link: "https://git0x.vercel.app/scan",
+      github: "https://github.com/kushwahaamar-dev/git0x"
+    },
+    {
+      title: "Tsinghua Sorting Barrier",
+      description: "Interactive algorithm visualization comparing Dijkstra's shortest path with optimized barrier algorithms on real-world map data.",
+      tech: ["TypeScript", "Leaflet", "OpenStreetMap", "Vite"],
+      category: "Research",
+      featured: false,
+      link: "https://sorting-barrier.vercel.app/",
+      github: "https://github.com/kushwahaamar-dev/sorting-barrier"
     }
   ],
   skills: [
@@ -84,7 +111,7 @@ export const resumeData: ResumeData = {
     { name: "C", level: 85, category: "Languages" },
     { name: "SQL", level: 85, category: "Languages" },
     { name: "Rust", level: 75, category: "Languages" },
-    
+
     // AI/ML
     { name: "Gemini API", level: 95, category: "AI/ML" },
     { name: "LangChain", level: 90, category: "AI/ML" },
@@ -95,7 +122,7 @@ export const resumeData: ResumeData = {
     { name: "FAISS", level: 85, category: "AI/ML" },
     { name: "NumPy/Pandas", level: 92, category: "AI/ML" },
     { name: "Ollama", level: 80, category: "AI/ML" },
-    
+
     // Web
     { name: "React", level: 92, category: "Web" },
     { name: "Node.js", level: 88, category: "Web" },
@@ -105,7 +132,7 @@ export const resumeData: ResumeData = {
     { name: "Three.js/R3F", level: 80, category: "Web" },
     { name: "Streamlit", level: 85, category: "Web" },
     { name: "Solana/Anchor", level: 78, category: "Web" },
-    
+
     // Tools
     { name: "Git/GitHub", level: 95, category: "Tools" },
     { name: "Docker", level: 85, category: "Tools" },
