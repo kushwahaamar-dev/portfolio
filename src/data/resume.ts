@@ -5,7 +5,7 @@ export const resumeData: ResumeData = {
     name: "Amar Kushwaha",
     title: "CS Student & Builder",
     email: "amkushwa@ttu.edu",
-    location: "Texas, USA",
+    location: "Austin/SF",
     linkedin: "https://www.linkedin.com/in/kushwaha-amar",
     x: "https://x.com/amarkushwaha__",
     instagram: "https://www.instagram.com/_a__m_a_r_/",
