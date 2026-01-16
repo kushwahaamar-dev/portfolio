@@ -31,6 +31,15 @@ export const resumeData: ResumeData = {
   ],
   projects: [
     {
+      title: "Git0X CLI",
+      description: "CLI tool to scan code for exposed secrets before committing. 70+ detection patterns for AI keys, cloud providers, databases, and more. Pre-commit hooks, SARIF output, CI/CD ready.",
+      tech: ["Node.js", "CLI", "Security", "NPM"],
+      category: "DevSecOps",
+      featured: true,
+      link: "https://www.npmjs.com/package/git0x",
+      github: "https://github.com/kushwahaamar-dev/git0x-cli"
+    },
+    {
       title: "TruthBlink ",
       description: "A browser extension and dApp that bridges Web2 social media with Web3 prediction markets using Solana Blinks. Place USDC bets on viral claims directly from Twitter/X.",
       tech: ["Solana", "Next.js", "Anchor", "Plasmo", "Gemini 1.5 Flash"],
@@ -83,15 +92,6 @@ export const resumeData: ResumeData = {
       featured: false,
       link: "https://github.com/kushwahaamar-dev/rlms",
       github: "https://github.com/kushwahaamar-dev/rlms"
-    },
-    {
-      title: "Git0X Security Scanner",
-      description: "Shipped! Advanced secret detection tool for Git repositories. Scans codebases for exposed API keys, credentials, and sensitive data. Building something new next.",
-      tech: ["React", "TypeScript", "Web Workers", "IndexedDB"],
-      category: "DevSecOps",
-      featured: false,
-      link: "https://git0x.vercel.app/scan",
-      github: "https://github.com/kushwahaamar-dev/git0x"
     },
     {
       title: "Tsinghua Sorting Barrier",
