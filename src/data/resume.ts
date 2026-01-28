@@ -34,7 +34,7 @@ export const resumeData: ResumeData = {
       title: "NEXUS",
       description: "Neural EEG classification system achieving 76.66% accuracy on 4-class motor imagery using a 9-model deep learning ensemble with Euclidean Alignment and CSP+SVM.",
       tech: ["Python", "PyTorch", "EEG/BCI", "Scikit-learn", "NumPy"],
-      category: "BCI ML Research",
+      category: "Neurotech/BCI",
       featured: true,
       link: "https://github.com/kushwahaamar-dev/nexus",
       github: "https://github.com/kushwahaamar-dev/nexus"
