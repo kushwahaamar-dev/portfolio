@@ -149,5 +149,14 @@ export const resumeData: ResumeData = {
     { name: "Pydantic", level: 85, category: "Tools" },
     { name: "Turborepo", level: 78, category: "Tools" },
     { name: "GSAP", level: 80, category: "Tools" }
+  ],
+  publications: [
+    {
+      title: "Quantifying Cognitive Effort's Impact on Suppression of Epilepsy-Associated After Discharges",
+      journal: "Frontiers in Network Physiology - Fractal Physiology",
+      authors: ["Pavan Beeram", "Matthew Farris", "Samir Hossain", "Nicholas Rethans", "Amar Kushwaha", "Shruti Dayanand Chougule", "Joon Y. Kang", "Emily A. Pereira"],
+      status: "in review",
+      year: 2025
+    }
   ]
 };

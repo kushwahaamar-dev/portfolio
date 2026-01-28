@@ -15,6 +15,16 @@ export interface Experience {
   description: string[];
 }
 
+export interface Publication {
+  title: string;
+  journal: string;
+  authors: string[];
+  status: 'published' | 'in review' | 'preprint';
+  year: number;
+  link?: string;
+  doi?: string;
+}
+
 export interface Skill {
   name: string;
   level: number; // 0-100
@@ -42,5 +52,6 @@ export interface ResumeData {
   experience: Experience[];
   projects: Project[];
   skills: Skill[];
+  publications: Publication[];
 }
 
