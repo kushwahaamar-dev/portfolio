@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { MainLayout } from './components/layout/MainLayout';
 import { Hero } from './components/sections/Hero';
@@ -79,6 +80,7 @@ function App() {
       {shouldShowCustomCursor && <CustomCursor />}
       
       <Analytics />
+      <SpeedInsights />
       
       <MainLayout>
         <Hero />
