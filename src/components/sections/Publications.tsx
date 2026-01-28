@@ -134,18 +134,22 @@ export const Publications = () => {
                   </div>
 
                   {/* Authors */}
-                  <div className="flex items-start gap-3 text-sm">
-                    <Users className="w-4 h-4 text-zinc-500 shrink-0 mt-1" />
-                    <p className="text-zinc-500 leading-relaxed">
-                      {pub.authors.map((author, i) => (
-                        <span key={i}>
-                          <span className={author === 'Amar Kushwaha' ? 'text-white font-semibold' : ''}>
-                            {author}
-                          </span>
-                          {i < pub.authors.length - 1 ? ', ' : ''}
-                        </span>
-                      ))}
-                    </p>
+                  <div className="flex flex-col gap-2">
+                    {/* Your contribution callout */}
+                    <div className="flex items-center gap-2">
+                      <span className="px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium border border-white/20">
+                        Contributing Author
+                      </span>
+                      <span className="text-zinc-400 text-sm">Amar Kushwaha</span>
+                    </div>
+                    
+                    {/* Full author list (collapsible style) */}
+                    <div className="flex items-start gap-2 text-sm">
+                      <Users className="w-4 h-4 text-zinc-600 shrink-0 mt-1" />
+                      <p className="text-zinc-600 leading-relaxed">
+                        {pub.authors[0]}, {pub.authors[1]} <span className="text-zinc-700">+ {pub.authors.length - 2} co-authors</span>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
