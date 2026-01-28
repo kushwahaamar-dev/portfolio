@@ -32,9 +32,9 @@ export const resumeData: ResumeData = {
   projects: [
     {
       title: "NEXUS",
-      description: "Rice Datathon 2026 winner. Neural EEG classification system achieving 76.66% accuracy on 4-class motor imagery using a 9-model deep learning ensemble with Euclidean Alignment and CSP+SVM.",
+      description: "Neural EEG classification system achieving 76.66% accuracy on 4-class motor imagery using a 9-model deep learning ensemble with Euclidean Alignment and CSP+SVM.",
       tech: ["Python", "PyTorch", "EEG/BCI", "Scikit-learn", "NumPy"],
-      category: "Research",
+      category: "BCI ML Research",
       featured: true,
       link: "https://github.com/kushwahaamar-dev/nexus",
       github: "https://github.com/kushwahaamar-dev/nexus"
