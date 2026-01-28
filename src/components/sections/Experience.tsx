@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { resumeData } from '../../data/resume';
-import { Briefcase, Calendar, MapPin, ArrowUpRight } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, ArrowUpRight, FileText, Users } from 'lucide-react';
 
 export const Experience = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -161,6 +161,77 @@ export const Experience = () => {
             ))}
           </div>
         </div>
+
+        {/* Publications Section */}
+        {resumeData.publications && resumeData.publications.length > 0 && (
+          <div className="mt-24">
+            <div className="exp-header text-center mb-16">
+              <p className="text-zinc-400 font-mono text-sm tracking-widest uppercase mb-6">
+                Academic Work
+              </p>
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Publications & 
+                <span className="text-gradient"> Papers</span>
+              </h3>
+            </div>
+
+            <div className="space-y-6">
+              {resumeData.publications.map((pub, idx) => (
+                <div 
+                  key={idx}
+                  className="exp-card glass-card p-8 rounded-2xl group hover:border-zinc-600 transition-colors bg-[#09090b] border border-zinc-800"
+                >
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="p-3 rounded-xl bg-zinc-900 border border-zinc-800 shrink-0">
+                      <FileText className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg md:text-xl font-bold text-white group-hover:text-zinc-200 transition-all leading-tight">
+                        {pub.title}
+                      </h4>
+                      <p className="text-zinc-400 text-sm mt-2">
+                        {pub.journal}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-3 mb-4">
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border ${
+                      pub.status === 'in review' 
+                        ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20' 
+                        : pub.status === 'published'
+                        ? 'bg-green-500/10 text-green-400 border-green-500/20'
+                        : 'bg-zinc-900 text-zinc-300 border-zinc-800'
+                    }`}>
+                      <span className={`w-1.5 h-1.5 rounded-full ${
+                        pub.status === 'in review' ? 'bg-yellow-400 animate-pulse' : 'bg-green-400'
+                      }`} />
+                      {pub.status === 'in review' ? 'In Review' : pub.status === 'published' ? 'Published' : 'Preprint'}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 text-zinc-400 border border-zinc-800 text-xs font-medium">
+                      <Calendar className="w-3 h-3" />
+                      {pub.year}
+                    </span>
+                  </div>
+
+                  <div className="flex items-start gap-2 text-zinc-500 text-sm">
+                    <Users className="w-4 h-4 shrink-0 mt-0.5" />
+                    <p className="leading-relaxed">
+                      {pub.authors.map((author, i) => (
+                        <span key={i}>
+                          <span className={author === 'Amar Kushwaha' ? 'text-white font-medium' : ''}>
+                            {author}
+                          </span>
+                          {i < pub.authors.length - 1 ? ', ' : ''}
+                        </span>
+                      ))}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
