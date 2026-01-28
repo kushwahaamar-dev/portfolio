@@ -5,6 +5,7 @@ import { MainLayout } from './components/layout/MainLayout';
 import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
 import { Skills } from './components/sections/Skills';
+import { Publications } from './components/sections/Publications';
 import { Projects } from './components/sections/Projects';
 import { Experience } from './components/sections/Experience';
 import { Contact } from './components/sections/Contact';
@@ -86,6 +87,7 @@ function App() {
         <Hero />
         <About />
         <Skills />
+        <Publications />
         <Projects />
         <Experience />
         <Contact />
