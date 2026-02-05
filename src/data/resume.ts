@@ -31,6 +31,15 @@ export const resumeData: ResumeData = {
   ],
   projects: [
     {
+      title: "VEP Brain Modeling",
+      description: "Virtual Epileptic Patient framework simulating seizure propagation in individual brains. Implements Epileptor neural mass model with TVB integration for personalized epilepsy surgery planning.",
+      tech: ["Python", "Numba", "TVB", "Plotly", "NumPy"],
+      category: "Research",
+      featured: true,
+      link: "https://github.com/kushwahaamar-dev/brain-modeling-research",
+      github: "https://github.com/kushwahaamar-dev/brain-modeling-research"
+    },
+    {
       title: "NEXUS",
       description: "Neural EEG classification system achieving 76.66% accuracy on 4-class motor imagery using a 9-model deep learning ensemble with Euclidean Alignment and CSP+SVM.",
       tech: ["Python", "PyTorch", "EEG/BCI", "Scikit-learn", "NumPy"],
