@@ -23,13 +23,13 @@ export const Publications = () => {
 
       gsap.registerPlugin(ScrollTrigger);
       ctx = gsap.context(() => {
+        // Only animate Y position, not opacity - prevents elements staying invisible on first load
         gsap.from(".pub-header", {
           scrollTrigger: {
             trigger: containerRef.current,
             start: "top 75%",
           },
           y: 40,
-          opacity: 0,
           duration: 0.8,
           ease: "power3.out"
         });
@@ -40,7 +40,6 @@ export const Publications = () => {
             start: "top 65%",
           },
           y: 60,
-          opacity: 0,
           duration: 1,
           stagger: 0.2,
           ease: "power3.out"
@@ -61,14 +60,14 @@ export const Publications = () => {
   return (
     <section id="publications" ref={containerRef} className="py-32 relative">
       <div className="max-w-5xl mx-auto px-6 lg:px-12">
-        
+
         {/* Section Header */}
         <div className="pub-header text-center mb-16">
           <p className="text-zinc-400 font-mono text-sm tracking-widest uppercase mb-6">
             Academic Work
           </p>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Publications & 
+            Publications &
             <span className="text-gradient"> Papers</span>
           </h2>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
@@ -79,7 +78,7 @@ export const Publications = () => {
         {/* Publications Grid */}
         <div className="space-y-6">
           {resumeData.publications.map((pub, idx) => (
-            <div 
+            <div
               key={idx}
               className="pub-card glass-card p-8 rounded-2xl group hover:border-zinc-600 transition-all duration-300 bg-[#09090b] border border-zinc-800 hover:bg-zinc-900/50"
             >
@@ -104,16 +103,14 @@ export const Publications = () => {
 
                   {/* Badges */}
                   <div className="flex flex-wrap gap-3 mb-5">
-                    <span className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium border ${
-                      pub.status === 'in review' 
-                        ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/30' 
+                    <span className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium border ${pub.status === 'in review'
+                        ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/30'
                         : pub.status === 'published'
-                        ? 'bg-green-500/10 text-green-400 border-green-500/30'
-                        : 'bg-zinc-900 text-zinc-300 border-zinc-700'
-                    }`}>
-                      <span className={`w-2 h-2 rounded-full ${
-                        pub.status === 'in review' ? 'bg-yellow-400 animate-pulse' : 'bg-green-400'
-                      }`} />
+                          ? 'bg-green-500/10 text-green-400 border-green-500/30'
+                          : 'bg-zinc-900 text-zinc-300 border-zinc-700'
+                      }`}>
+                      <span className={`w-2 h-2 rounded-full ${pub.status === 'in review' ? 'bg-yellow-400 animate-pulse' : 'bg-green-400'
+                        }`} />
                       {pub.status === 'in review' ? 'In Review' : pub.status === 'published' ? 'Published' : 'Preprint'}
                     </span>
                     <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900 text-zinc-400 border border-zinc-700 text-sm font-medium">
@@ -121,7 +118,7 @@ export const Publications = () => {
                       {pub.year}
                     </span>
                     {pub.link && (
-                      <a 
+                      <a
                         href={pub.link}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -142,7 +139,7 @@ export const Publications = () => {
                       </span>
                       <span className="text-zinc-400 text-sm">Amar Kushwaha</span>
                     </div>
-                    
+
                     {/* Full author list (collapsible style) */}
                     <div className="flex items-start gap-2 text-sm">
                       <Users className="w-4 h-4 text-zinc-600 shrink-0 mt-1" />
