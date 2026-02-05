@@ -3,7 +3,7 @@ import { resumeData } from '../../data/resume';
 import { Code2, Brain, Database, Rocket, GraduationCap, Trophy, Target } from 'lucide-react';
 
 const highlights = [
-  { icon: Code2, label: "Projects Shipped", value: "8+", color: "#ffffff" },
+  { icon: Code2, label: "Projects Shipped", value: "9+", color: "#ffffff" },
   { icon: Trophy, label: "Hackathon Wins", value: "3x", color: "#e4e4e7" },
   { icon: Target, label: "Research Focus", value: "BCI", color: "#d4d4d8" },
 ];
@@ -79,7 +79,7 @@ export const About = () => {
   return (
     <section id="about" ref={containerRef} className="relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        
+
         {/* Section Header */}
         <div className="about-fade max-w-3xl mb-20">
           <p className="text-zinc-400 font-mono text-sm tracking-widest uppercase mb-6">
@@ -97,11 +97,11 @@ export const About = () => {
         {/* Stats Row */}
         <div className="about-fade grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
           {highlights.map((item) => (
-            <div 
+            <div
               key={item.label}
               className="p-8 rounded-2xl text-center group hover:scale-[1.02] transition-transform duration-300 border border-zinc-800 bg-[#09090b]"
             >
-              <div 
+              <div
                 className="w-14 h-14 mx-auto mb-4 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 bg-zinc-900 border border-zinc-800"
               >
                 <item.icon className="w-7 h-7 text-white" />
@@ -115,13 +115,13 @@ export const About = () => {
         {/* Expertise Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {expertise.map((item, index) => (
-            <div 
+            <div
               key={item.title}
               className="about-fade p-8 rounded-2xl group border border-zinc-800 bg-[#09090b] hover:border-zinc-600 transition-colors"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-start gap-5">
-                <div 
+                <div
                   className="p-4 rounded-xl shrink-0 transition-all duration-300 group-hover:scale-110 bg-zinc-900 border border-zinc-800"
                 >
                   <item.icon className="w-6 h-6 text-white" />
