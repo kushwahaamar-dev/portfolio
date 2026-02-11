@@ -229,7 +229,7 @@ export const Hero = () => {
                   <p className="text-xs text-zinc-500 uppercase tracking-wider mb-2">Latest Activity</p>
                   <div className="p-3 rounded-lg bg-zinc-900 border border-zinc-800">
                     <p className="font-mono text-xs text-zinc-400 mb-1">git commit -m</p>
-                    <p className="text-sm text-zinc-300">"feat: pushed nexus building something new"</p>
+                    <p className="text-sm text-zinc-300">"feat: pushed VEP building something new"</p>
                   </div>
                 </div>
 
