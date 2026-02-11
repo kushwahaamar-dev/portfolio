@@ -10,7 +10,7 @@ export const resumeData: ResumeData = {
     x: "https://x.com/amarkushwaha__",
     instagram: "https://www.instagram.com/_a__m_a_r_/",
     phone: "806-559-5600",
-    summary: "I build AI systems that work. Currently researching brain-computer interfaces at Texas Tech while shipping production-grade LLM applications. When I'm not in the lab, I'm probably winning hackathons."
+    summary: "I build AI systems that work. Currently researching brain-computer interfaces at Texas Tech while shipping production-grade LLM applications. When I'm not in the lab, I'm probably at hackathons."
   },
   education: {
     school: "Texas Tech University",
