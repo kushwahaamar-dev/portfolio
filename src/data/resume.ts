@@ -33,50 +33,45 @@ export const resumeData: ResumeData = {
     {
       title: "Kayden",
       description: "Autonomous AI agent infrastructure on Base. Agents deployed as iNFTs with Token Bound Accounts, self-sustaining via ERC-4337 paymaster, governed by Nouns Builder DAO.",
-      tech: ["Solidity", "Next.js", "Foundry", "ERC-6551", "ERC-4337", "Base"],
+      tech: ["Solidity", "Next.js 15", "Foundry", "ERC-6551", "ERC-4337", "wagmi"],
       category: "Web3",
       featured: true,
-      hackathon: "ETHDenver 2026",
       link: "https://kayden-dao.vercel.app",
       github: "https://github.com/kushwahaamar-dev/kayden"
     },
     {
       title: "ZeroGate",
       description: "Local-first content paywall on Polkadot. No accounts, no tracking. Uses Smoldot in-browser WASM light client for trustless tx verification. Creators get 100%, users own content forever.",
-      tech: ["Next.js", "Polkadot", "Smoldot", "PAPI", "Tailwind"],
+      tech: ["Next.js 16", "Polkadot", "Smoldot", "polkadot-api", "Framer Motion"],
       category: "Web3",
       featured: true,
-      hackathon: "Polkadot Hackathon",
       link: "https://v0id-one.vercel.app",
       github: "https://github.com/kushwahaamar-dev/v0id"
     },
     {
       title: "NEXUS",
       description: "Neural EEG classification system achieving 76.66% accuracy on 4-class motor imagery using a 9-model deep learning ensemble with Euclidean Alignment and CSP+SVM.",
-      tech: ["Python", "PyTorch", "EEG/BCI", "Scikit-learn", "NumPy"],
+      tech: ["Python", "PyTorch", "SciPy", "Scikit-learn", "NumPy"],
       category: "Neurotech/BCI",
       featured: true,
-      hackathon: "Rice Datathon 2026",
       link: "https://github.com/kushwahaamar-dev/nexus",
       github: "https://github.com/kushwahaamar-dev/nexus"
     },
     {
       title: "TruthBlink",
       description: "Browser extension and dApp bridging Web2 social media with Web3 prediction markets using Solana Blinks. Place USDC bets on viral claims directly from Twitter/X.",
-      tech: ["Solana", "Next.js", "Anchor", "Plasmo", "Gemini 1.5 Flash"],
+      tech: ["Solana", "Anchor", "Next.js", "Plasmo", "Gemini API"],
       category: "Web3",
       featured: true,
-      hackathon: "Solana Colosseum",
       link: "https://github.com/kushwahaamar-dev/truth",
       github: "https://github.com/kushwahaamar-dev/truth"
     },
     {
       title: "Torpe Hitachi Classifier",
       description: "Enterprise-grade AI document classification platform using Google Gemini 2.0 Flash. Integrates RAG/CAG pipelines and Solana blockchain for immutable audit trails.",
-      tech: ["Gemini 2.0", "Solana", "RAG", "Python", "React"],
+      tech: ["Gemini 2.0", "Solana", "RAG/CAG", "Python", "React"],
       category: "AI/ML",
       featured: true,
-      hackathon: "HackUTD 2024",
       link: "https://github.com/kushwahaamar-dev/doc-classifier",
       github: "https://github.com/kushwahaamar-dev/doc-classifier"
     },
