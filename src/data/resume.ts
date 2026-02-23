@@ -67,6 +67,24 @@ export const resumeData: ResumeData = {
       github: "https://github.com/kushwahaamar-dev/truth"
     },
     {
+      title: "Kayden",
+      description: "ETHDenver 2026. Autonomous AI agent infrastructure on Base. Agents deployed as iNFTs with Token Bound Accounts, self-sustaining via ERC-4337 paymaster, governed by Nouns Builder DAO.",
+      tech: ["Solidity", "Next.js", "Foundry", "ERC-6551", "ERC-4337", "Base"],
+      category: "Web3",
+      featured: true,
+      link: "https://kayden-dao.vercel.app",
+      github: "https://github.com/kushwahaamar-dev/kayden"
+    },
+    {
+      title: "ZeroGate",
+      description: "Local-first content paywall on Polkadot. No accounts, no tracking. Uses Smoldot in-browser WASM light client for trustless tx verification. Creators get 100%, users own content forever.",
+      tech: ["Next.js", "Polkadot", "Smoldot", "PAPI", "Tailwind"],
+      category: "Web3",
+      featured: true,
+      link: "https://v0id-one.vercel.app",
+      github: "https://github.com/kushwahaamar-dev/v0id"
+    },
+    {
       title: "Torpe Hitachi Classifier",
       description: "Enterprise-grade AI document classification platform using Google Gemini 2.0 Flash. Integrates RAG/CAG pipelines and Solana blockchain for immutable audit trails.",
       tech: ["Gemini 2.0", "Solana", "RAG", "Python", "React"],
