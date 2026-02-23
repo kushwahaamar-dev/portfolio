@@ -4,7 +4,7 @@ import { Code2, Brain, Database, Rocket, GraduationCap, Trophy, Target } from 'l
 
 const highlights = [
   { icon: Code2, label: "Projects Shipped", value: "9+", color: "#ffffff" },
-  { icon: Trophy, label: "Hackathon Wins", value: "3x", color: "#e4e4e7" },
+  { icon: Trophy, label: "Hackathon Wins", value: "5x", color: "#e4e4e7" },
   { icon: Target, label: "Research Focus", value: "BCI", color: "#d4d4d8" },
 ];
 
