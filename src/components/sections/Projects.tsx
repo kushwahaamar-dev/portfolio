@@ -53,11 +53,18 @@ const ProjectCard = ({ project }: { project: typeof resumeData.projects[0] }) =>
               <h3 className="text-lg font-bold text-white group-hover:text-zinc-200 transition-all leading-tight">
                 {project.title}
               </h3>
-              <span
-                className="text-[10px] font-mono font-bold uppercase tracking-wider mt-0.5 text-zinc-500"
-              >
-                {project.category}
-              </span>
+              <div className="flex items-center gap-2 mt-0.5">
+                <span
+                  className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-500"
+                >
+                  {project.category}
+                </span>
+                {project.hackathon && (
+                  <span className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/30">
+                    {project.hackathon}
+                  </span>
+                )}
+              </div>
             </div>
           </div>
           <div className="flex items-center gap-1 z-10">

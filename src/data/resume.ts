@@ -10,7 +10,7 @@ export const resumeData: ResumeData = {
     x: "https://x.com/amarkushwaha__",
     instagram: "https://www.instagram.com/_a__m_a_r_/",
     phone: "806-559-5600",
-    summary: "I build AI systems that work. Currently researching brain-computer interfaces at Texas Tech while shipping production-grade LLM applications. When I'm not in the lab, I'm probably at hackathons."
+    summary: "I build AI systems that work. Currently researching brain-computer interfaces at Texas Tech while shipping production-grade LLM applications. 5x hackathon winner."
   },
   education: {
     school: "Texas Tech University",
@@ -31,47 +31,12 @@ export const resumeData: ResumeData = {
   ],
   projects: [
     {
-      title: "VEP Brain Modeling",
-      description: "Virtual Epileptic Patient framework simulating seizure propagation in individual brains. Implements Epileptor neural mass model with TVB integration for personalized epilepsy surgery planning.",
-      tech: ["Python", "Numba", "TVB", "Plotly", "NumPy"],
-      category: "Research",
-      featured: true,
-      link: "https://github.com/kushwahaamar-dev/brain-modeling-research",
-      github: "https://github.com/kushwahaamar-dev/brain-modeling-research"
-    },
-    {
-      title: "NEXUS",
-      description: "Neural EEG classification system achieving 76.66% accuracy on 4-class motor imagery using a 9-model deep learning ensemble with Euclidean Alignment and CSP+SVM.",
-      tech: ["Python", "PyTorch", "EEG/BCI", "Scikit-learn", "NumPy"],
-      category: "Neurotech/BCI",
-      featured: true,
-      link: "https://github.com/kushwahaamar-dev/nexus",
-      github: "https://github.com/kushwahaamar-dev/nexus"
-    },
-    {
-      title: "Git0X CLI",
-      description: "CLI tool to scan code for exposed secrets before committing. 70+ detection patterns for AI keys, cloud providers, databases, and more. Pre-commit hooks, SARIF output, CI/CD ready.",
-      tech: ["Node.js", "CLI", "Security", "NPM"],
-      category: "DevSecOps",
-      featured: true,
-      link: "https://www.npmjs.com/package/git0x",
-      github: "https://github.com/kushwahaamar-dev/git0x-cli"
-    },
-    {
-      title: "TruthBlink ",
-      description: "A browser extension and dApp that bridges Web2 social media with Web3 prediction markets using Solana Blinks. Place USDC bets on viral claims directly from Twitter/X.",
-      tech: ["Solana", "Next.js", "Anchor", "Plasmo", "Gemini 1.5 Flash"],
-      category: "Web3",
-      featured: true,
-      link: "https://github.com/kushwahaamar-dev/truth",
-      github: "https://github.com/kushwahaamar-dev/truth"
-    },
-    {
       title: "Kayden",
-      description: "ETHDenver 2026. Autonomous AI agent infrastructure on Base. Agents deployed as iNFTs with Token Bound Accounts, self-sustaining via ERC-4337 paymaster, governed by Nouns Builder DAO.",
+      description: "Autonomous AI agent infrastructure on Base. Agents deployed as iNFTs with Token Bound Accounts, self-sustaining via ERC-4337 paymaster, governed by Nouns Builder DAO.",
       tech: ["Solidity", "Next.js", "Foundry", "ERC-6551", "ERC-4337", "Base"],
       category: "Web3",
       featured: true,
+      hackathon: "ETHDenver 2026",
       link: "https://kayden-dao.vercel.app",
       github: "https://github.com/kushwahaamar-dev/kayden"
     },
@@ -81,8 +46,29 @@ export const resumeData: ResumeData = {
       tech: ["Next.js", "Polkadot", "Smoldot", "PAPI", "Tailwind"],
       category: "Web3",
       featured: true,
+      hackathon: "Polkadot Hackathon",
       link: "https://v0id-one.vercel.app",
       github: "https://github.com/kushwahaamar-dev/v0id"
+    },
+    {
+      title: "NEXUS",
+      description: "Neural EEG classification system achieving 76.66% accuracy on 4-class motor imagery using a 9-model deep learning ensemble with Euclidean Alignment and CSP+SVM.",
+      tech: ["Python", "PyTorch", "EEG/BCI", "Scikit-learn", "NumPy"],
+      category: "Neurotech/BCI",
+      featured: true,
+      hackathon: "Rice Datathon 2026",
+      link: "https://github.com/kushwahaamar-dev/nexus",
+      github: "https://github.com/kushwahaamar-dev/nexus"
+    },
+    {
+      title: "TruthBlink",
+      description: "Browser extension and dApp bridging Web2 social media with Web3 prediction markets using Solana Blinks. Place USDC bets on viral claims directly from Twitter/X.",
+      tech: ["Solana", "Next.js", "Anchor", "Plasmo", "Gemini 1.5 Flash"],
+      category: "Web3",
+      featured: true,
+      hackathon: "Solana Colosseum",
+      link: "https://github.com/kushwahaamar-dev/truth",
+      github: "https://github.com/kushwahaamar-dev/truth"
     },
     {
       title: "Torpe Hitachi Classifier",
@@ -90,8 +76,27 @@ export const resumeData: ResumeData = {
       tech: ["Gemini 2.0", "Solana", "RAG", "Python", "React"],
       category: "AI/ML",
       featured: true,
+      hackathon: "HackUTD 2024",
       link: "https://github.com/kushwahaamar-dev/doc-classifier",
       github: "https://github.com/kushwahaamar-dev/doc-classifier"
+    },
+    {
+      title: "VEP Brain Modeling",
+      description: "Virtual Epileptic Patient framework simulating seizure propagation in individual brains. Implements Epileptor neural mass model with TVB integration for personalized epilepsy surgery planning.",
+      tech: ["Python", "Numba", "TVB", "Plotly", "NumPy"],
+      category: "Research",
+      featured: true,
+      link: "https://github.com/kushwahaamar-dev/brain-modeling-research",
+      github: "https://github.com/kushwahaamar-dev/brain-modeling-research"
+    },
+    {
+      title: "Git0X CLI",
+      description: "CLI tool to scan code for exposed secrets before committing. 70+ detection patterns for AI keys, cloud providers, databases, and more. Pre-commit hooks, SARIF output, CI/CD ready.",
+      tech: ["Node.js", "CLI", "Security", "NPM"],
+      category: "DevSecOps",
+      featured: true,
+      link: "https://www.npmjs.com/package/git0x",
+      github: "https://github.com/kushwahaamar-dev/git0x-cli"
     },
     {
       title: "LogX+ AI Platform",
