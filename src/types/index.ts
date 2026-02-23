@@ -6,7 +6,6 @@ export interface Project {
   github?: string;
   category: 'AI/ML' | 'Web3' | 'Full Stack' | 'Research' | 'DevSecOps' | 'Neurotech/BCI';
   featured: boolean;
-  hackathon?: string;
 }
 
 export interface Experience {
