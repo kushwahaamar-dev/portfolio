@@ -1,37 +1,273 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="/favicon.ico" sizes="32x32" />
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Amar Kushwaha - CS Student & Builder. Building AI systems, researching Brain-Computer Interfaces at Texas Tech." />
-  <meta name="theme-color" content="#09090b" />
+    <title>Amar Kushwaha</title>
+    <meta
+      name="description"
+      content="Amar Kushwaha — computer-science student at Texas Tech. I build software around agentic AI and study how seizures move through the brain."
+    />
+    <link rel="canonical" href="https://amarkushwaha.com" />
+    <meta name="theme-color" content="#fbfbf9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#161615" media="(prefers-color-scheme: dark)" />
 
-  <title>Amar Kushwaha | Portfolio</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://amarkushwaha.com" />
+    <meta property="og:title" content="Amar Kushwaha" />
+    <meta
+      property="og:description"
+      content="Computer-science student at Texas Tech. I build software around agentic AI and study how seizures move through the brain."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@amarkushwaha__" />
 
-  <!-- Google Fonts - Preload for faster loading -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
-    rel="stylesheet">
+    <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/src/index.css" />
 
-  <!-- Critical CSS for initial load -->
-  <style>
-    html,
-    body {
-      background-color: #09090b;
-      color: #fafafa;
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    }
-  </style>
-</head>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Amar Kushwaha",
+        "url": "https://amarkushwaha.com",
+        "jobTitle": "Computer Science Student",
+        "alumniOf": "Texas Tech University",
+        "email": "mailto:amkushwa@ttu.edu",
+        "sameAs": [
+          "https://github.com/kushwahaamar-dev",
+          "https://x.com/amarkushwaha__",
+          "https://www.linkedin.com/in/kushwaha-amar"
+        ]
+      }
+    </script>
+  </head>
 
-<body class="bg-[#09090b] text-white antialiased">
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
-</body>
+  <body>
+    <header class="masthead band" data-animate style="animation-delay: 0ms">
+      <h1>Amar Kushwaha</h1>
+      <p class="intro">
+        I’m a computer-science student at
+        <a href="https://www.ttu.edu" target="_blank" rel="noopener noreferrer"><strong>Texas Tech</strong></a>, in the
+        Honors College, studying agentic AI and how seizures move through the brain. I build software end-to-end — a
+        secret scanner people install from npm, tooling that keeps AI agents honest, EEG models, a disaster-response
+        platform.
+      </p>
+      <p class="now">
+        <strong>Now</strong> — joining
+        <a href="https://www.linkedin.com/company/tempora-labs" target="_blank" rel="noopener noreferrer">Tempora Labs</a>
+        as an Applied Scientist Intern in agentic AI this summer, and researching epileptic brain networks at Texas Tech.
+      </p>
+    </header>
 
+    <main class="band">
+      <section aria-labelledby="sec-work" data-animate style="animation-delay: 70ms">
+        <h2 class="label" id="sec-work">Selected work</h2>
+        <div class="work">
+          <article class="work-item">
+            <div class="work-head">
+              <span class="work-name">git0x</span>
+              <span class="work-meta">on npm · 70 detection patterns</span>
+            </div>
+            <p class="work-blurb">
+              A command-line tool that catches leaked secrets — API keys, tokens, passwords — before they ever reach a
+              commit.
+            </p>
+            <div class="work-links">
+              <a href="https://www.npmjs.com/package/git0x" target="_blank" rel="noopener noreferrer"
+                aria-label="git0x on npm">npm</a>
+              <a href="https://github.com/kushwahaamar-dev/git0x-cli" target="_blank" rel="noopener noreferrer"
+                aria-label="git0x source on GitHub">source</a>
+            </div>
+          </article>
+
+          <article class="work-item">
+            <div class="work-head">
+              <span class="work-name">Kayden</span>
+              <span class="work-meta">ETHDenver 2026 — dual-track winner</span>
+            </div>
+            <p class="work-blurb">
+              On-chain homes that keep autonomous AI agents alive and paying their own gas, with identity and governance
+              built in.
+            </p>
+            <div class="work-links">
+              <a href="https://kayden-dao.vercel.app" target="_blank" rel="noopener noreferrer"
+                aria-label="Kayden live demo">demo</a>
+              <a href="https://github.com/kushwahaamar-dev/kayden" target="_blank" rel="noopener noreferrer"
+                aria-label="Kayden source on GitHub">source</a>
+            </div>
+          </article>
+
+          <article class="work-item">
+            <div class="work-head">
+              <span class="work-name">Sonsensus</span>
+              <span class="work-meta">21 verified payments on Base Sepolia</span>
+            </div>
+            <p class="work-blurb">
+              A payment stream that releases stablecoin to an AI worker in proportion to the work it can prove, judged
+              on-chain.
+            </p>
+            <div class="work-links">
+              <a href="https://github.com/kushwahaamar-dev/scaffold" target="_blank" rel="noopener noreferrer"
+                aria-label="Sonsensus source on GitHub">source</a>
+              <a
+                href="https://sepolia.basescan.org/address/0xA1e78f0B227feB3a3043302Afb0A45bC5381af32"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Sonsensus contract on Basescan"
+                >contract</a
+              >
+            </div>
+          </article>
+
+          <article class="work-item">
+            <div class="work-head">
+              <span class="work-name">NeuroFormer</span>
+              <span class="work-meta">research-grade Python library</span>
+            </div>
+            <p class="work-blurb">
+              An EEG library that reads psychiatric signals from brainwaves using a hybrid graph-and-transformer model —
+              packaged, tested, and continuously built.
+            </p>
+            <div class="work-links">
+              <a href="https://github.com/kushwahaamar-dev/eeginfra" target="_blank" rel="noopener noreferrer"
+                aria-label="NeuroFormer source on GitHub">source</a>
+            </div>
+          </article>
+
+          <article class="work-item">
+            <div class="work-head">
+              <span class="work-name">Universal Sentinel</span>
+              <span class="work-meta">GDACS · NASA · NOAA</span>
+            </div>
+            <p class="work-blurb">
+              A disaster-response treasury that watches live hazard feeds, lets an AI weigh each release of aid, and pays
+              verified responders.
+            </p>
+            <div class="work-links">
+              <a href="https://sentinel-sigma-five.vercel.app" target="_blank" rel="noopener noreferrer"
+                aria-label="Universal Sentinel live demo">demo</a>
+              <a href="https://github.com/kushwahaamar-dev/sentinel" target="_blank" rel="noopener noreferrer"
+                aria-label="Universal Sentinel source on GitHub">source</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="sec-building" data-animate style="animation-delay: 140ms">
+        <h2 class="label" id="sec-building">Also building</h2>
+        <div class="compact">
+          <p class="compact-item">
+            <a class="work-name" href="https://oa-th.wiki" target="_blank" rel="noopener noreferrer">Oath</a>
+            <span class="sep">—</span> a stake-backed promise an AI agent signs before it acts, and is slashed for
+            breaking
+          </p>
+          <p class="compact-item">
+            <a class="work-name" href="https://v0id-one.vercel.app" target="_blank" rel="noopener noreferrer">ZeroGate</a>
+            <span class="sep">—</span> a pay-per-article paywall with an in-browser Polkadot light client and no accounts
+          </p>
+          <p class="compact-item">
+            <a class="work-name" href="https://sol-opal-rho.vercel.app" target="_blank" rel="noopener noreferrer"
+              >Kartein</a
+            >
+            <span class="sep">—</span> a policy firewall that checks every AI agent’s payment against spending rules first
+          </p>
+          <p class="compact-item">
+            <a class="work-name" href="https://sorting-barrier.vercel.app" target="_blank" rel="noopener noreferrer"
+              >Sorting Barrier</a
+            >
+            <span class="sep">—</span> an interactive race between Dijkstra and 2025’s faster shortest-path algorithm
+          </p>
+        </div>
+        <p class="archive-link">
+          <a href="https://github.com/kushwahaamar-dev" target="_blank" rel="noopener noreferrer"
+            >everything on GitHub →</a
+          >
+        </p>
+      </section>
+
+      <section aria-labelledby="sec-research" data-animate style="animation-delay: 210ms">
+        <h2 class="label" id="sec-research">Research &amp; writing</h2>
+        <div class="work">
+          <article class="work-item">
+            <div class="work-head">
+              <span class="work-name">Epileptic brain networks</span>
+              <span class="work-meta">Texas Tech · Honors research</span>
+            </div>
+            <p class="work-blurb">
+              Simulating how seizures spread across 76–998 brain regions with the Epileptor model, made roughly 1000×
+              faster than the pure-Python reference loop with Numba. Part of the lab’s work on suppressing seizure
+              activity through cognitive effort.
+            </p>
+            <div class="work-links">
+              <a href="https://github.com/kushwahaamar-dev/VESP-" target="_blank" rel="noopener noreferrer"
+                aria-label="Epileptic brain networks source on GitHub">source</a>
+            </div>
+          </article>
+
+          <article class="work-item">
+            <div class="work-head">
+              <span class="work-name">RAWRB</span>
+              <span class="work-meta">Accepted to the ACL 2026 Student Research Workshop</span>
+            </div>
+            <p class="work-blurb">
+              A benchmark measuring whether a small language model’s step-by-step reasoning actually drives its answer,
+              or just rationalizes one it already had.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="sec-recognition" data-animate style="animation-delay: 280ms">
+        <h2 class="label" id="sec-recognition">Recognition</h2>
+        <ul class="recognition">
+          <li>ETHDenver 2026 — dual-track winner (Nouns Builder · ADI Foundation), with Kayden</li>
+          <li>TAMU Datathon 2025 — winner, HackMLH track</li>
+          <li>Hook ’Em Hacks — Best Use of Solana, with Oath</li>
+          <li>HackWesTX VI — dual winner (Gemini API · Web3)</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="sec-education" data-animate style="animation-delay: 350ms">
+        <h2 class="label" id="sec-education">Education</h2>
+        <p class="detail">
+          B.S. Computer Science, minor in Mathematics — Texas Tech, expected December 2027. Honors College, 4.0 GPA.
+        </p>
+      </section>
+
+      <section aria-labelledby="sec-contact" data-animate style="animation-delay: 420ms">
+        <h2 class="label" id="sec-contact">Contact</h2>
+        <p class="contact-links">
+          <button type="button" class="copy-email" id="copy-email" aria-label="Copy email address amkushwa@ttu.edu">
+            amkushwa@ttu.edu
+          </button>
+          <span class="copied" id="copied" role="status" aria-live="polite" hidden> copied</span>
+          <br />
+          <a href="https://github.com/kushwahaamar-dev" target="_blank" rel="noopener noreferrer"
+            >github.com/kushwahaamar-dev</a
+          >
+          <br />
+          <a href="https://x.com/amarkushwaha__" target="_blank" rel="noopener noreferrer">x.com/amarkushwaha__</a>
+          <br />
+          <a href="https://www.linkedin.com/in/kushwaha-amar" target="_blank" rel="noopener noreferrer"
+            >linkedin.com/in/kushwaha-amar</a
+          >
+          <br />
+          <a href="/Amar_Kushwaha_Resume.pdf" target="_blank" rel="noopener noreferrer">résumé (pdf)</a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="colophon band" data-animate style="animation-delay: 490ms">
+      Set in Newsreader. Static, hand-built — no framework, almost no JavaScript.
+      <a href="https://github.com/kushwahaamar-dev/portfolio" target="_blank" rel="noopener noreferrer">Source.</a>
+      <br />
+      Lubbock, Texas.
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>

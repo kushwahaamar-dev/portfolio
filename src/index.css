@@ -1,278 +1,372 @@
-@import "tailwindcss";
+/* ─────────────────────────────────────────────────────────────
+   amarkushwaha.com — one quiet column of text.
+   No framework, no utility classes. The whole design lives here.
+   ───────────────────────────────────────────────────────────── */
 
-@theme {
-  /* SHADCN / MINIMALIST MONOCHROME PALETTE (Zinc Based) */
-  --color-cyber-black: #09090b;
-  --color-cyber-dark: #18181b;
-  --color-cyber-gray: #27272a;
-  --color-cyber-text: #fafafa;
-  --color-cyber-muted: #a1a1aa;
-  
-  --color-background: #09090b;
-  --color-foreground: #fafafa;
-  
-  --color-card: #09090b;
-  --color-card-foreground: #fafafa;
-  
-  --color-primary: #fafafa;
-  --color-primary-foreground: #18181b;
-  
-  --color-secondary: #27272a;
-  --color-secondary-foreground: #fafafa;
-  
-  --color-muted: #27272a;
-  --color-muted-foreground: #a1a1aa;
-  
-  --color-accent: #27272a;
-  --color-accent-foreground: #fafafa;
-  
-  --color-border: #27272a;
-  --color-input: #27272a;
-  --color-ring: #d4d4d8;
-
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/fonts/newsreader-var.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/fonts/newsreader-italic-var.woff2') format('woff2');
+}
+/* Metric-matched fallback so the swap doesn't shift the layout. */
+@font-face {
+  font-family: 'Newsreader Fallback';
+  src: local('Georgia'), local('Times New Roman');
+  size-adjust: 96%;
+  ascent-override: 92%;
+  descent-override: 24%;
+  line-gap-override: 0%;
 }
 
 :root {
-  color-scheme: dark;
-  --color-background: #09090b;
-  --color-foreground: #fafafa;
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  --serif: 'Newsreader', 'Newsreader Fallback', Georgia, 'Times New Roman', serif;
+  --mono: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+
+  --measure: 39rem;
+  --mono-sm: 0.6875rem; /* labels, meta */
+  --mono-md: 0.8125rem; /* utility links */
+
+  /* warm paper, dark ink, one teal accent */
+  --bg: #fbfbf9;
+  --text: #2d2b28;
+  --strong: #141312;
+  --dim: #6e6b66;
+  --faint: #767069;
+  --accent: #0d7d70;
+  --accent-line: rgba(13, 125, 112, 0.45); /* quiet teal for utility underlines */
+  --accent-soft: rgba(13, 125, 112, 0.14);
+  --rule: rgba(20, 19, 18, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161615;
+    --text: #cfcdc7;
+    --strong: #f2f1ec;
+    --dim: #8d8b85;
+    --faint: #86847d;
+    --accent: #46a596;
+    --accent-line: rgba(70, 165, 150, 0.5);
+    --accent-soft: rgba(70, 165, 150, 0.18);
+    --rule: rgba(255, 255, 255, 0.1);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
-  background-color: #09090b;
-}
-
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  border-color: var(--color-border);
+  scrollbar-gutter: stable;
+  -webkit-text-size-adjust: 100%;
+  background: var(--bg);
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-  font-family: 'Inter', system-ui, sans-serif;
-  overflow-x: hidden;
-  line-height: 1.7;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  color: var(--color-foreground);
-}
-
-a, button {
-  transition: all 0.2s ease-in-out;
-}
-
-.font-mono {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
-}
-
-/* ============================================
-   BACKGROUND - Subtle Dot Pattern
-   ============================================ */
-.cyber-grid {
-  background-size: 24px 24px;
-  background-image: radial-gradient(circle, #27272a 1px, transparent 1px);
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
-  opacity: 0.3;
-}
-
-/* ============================================
-   SHADCN-STYLE CARDS
-   ============================================ */
-.glass-card {
-  background: #09090b; /* Solid background for contrast */
-  border: 1px solid var(--color-border);
-  transition: all 0.2s ease;
-}
-
-.glass-card:hover {
-  border-color: #52525b; /* Zinc-600 on hover */
-  background: #09090b;
-}
-
-/* ============================================
-   SECTION SPACING
-   ============================================ */
-section {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-}
-
-@media (min-width: 768px) {
-  section {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
-}
-
-/* ============================================
-   SCROLLBAR
-   ============================================ */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #27272a;
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #52525b;
+  margin: 0;
+  padding: clamp(3.5rem, 9vh, 7rem) 0 clamp(4rem, 10vh, 8rem);
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.62;
+  font-weight: 400;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: #fafafa;
-  color: #09090b;
+  background: var(--accent-soft);
+  color: var(--strong);
 }
 
-/* ============================================
-   SCROLL PROGRESS BAR - White
-   ============================================ */
-#scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 2px;
-  background: #fafafa;
-  z-index: 9999;
-  transform-origin: left;
-  transform: scaleX(0);
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2.5px;
+  text-decoration-color: var(--accent);
+  transition: text-decoration-color 150ms ease, color 150ms ease;
 }
 
-/* ============================================
-   CUSTOM CURSOR - Inverted
-   ============================================ */
-#custom-cursor {
-  position: fixed;
-  width: 16px;
-  height: 16px;
-  background: #fafafa;
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease;
-  z-index: 9999;
-  mix-blend-mode: exclusion;
+@media (hover: hover) {
+  a:hover {
+    text-decoration-color: var(--strong);
+  }
 }
 
-#custom-cursor.hovered {
-  width: 48px;
-  height: 48px;
-  opacity: 0.5;
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
-/* ============================================
-   BUTTON STYLES - Minimalist
-   ============================================ */
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: #fafafa;
-  color: #09090b;
+/* ── Layout: full-bleed background, centered reading column ──── */
+
+.band {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+section {
+  margin-top: 3.5rem;
+}
+
+h2.label {
+  font: inherit;
+  font-family: var(--mono);
+  font-size: var(--mono-sm);
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 1.4rem;
+}
+
+/* ── Masthead ───────────────────────────────────────────────── */
+
+.masthead h1 {
+  font-size: clamp(1.75rem, 5vw, 2rem);
   font-weight: 500;
-  border-radius: 0.5rem;
-  transition: all 0.2s;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--strong);
+  margin: 0 0 1.4rem;
 }
 
-.btn-primary:hover {
-  background: #d4d4d8;
+.intro {
+  margin: 0;
+  color: var(--text);
+  text-wrap: pretty;
 }
 
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: transparent;
-  border: 1px solid #27272a;
-  color: #fafafa;
+.intro strong {
   font-weight: 500;
-  border-radius: 0.5rem;
-  transition: all 0.2s;
+  color: var(--strong);
 }
 
-.btn-secondary:hover {
-  background: #27272a;
-  border-color: #52525b;
+.now {
+  margin: 1.4rem 0 0;
+  color: var(--dim);
+  font-style: italic;
 }
 
-/* ============================================
-   TEXT GRADIENT - Subtle Silver
-   ============================================ */
-.text-gradient {
-  background: linear-gradient(to bottom right, #ffffff 30%, #a1a1aa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.now strong {
+  font-weight: 500;
+  font-style: normal;
+  color: var(--text);
 }
 
-.text-gradient-orange {
-  /* Reusing subtle gradient for consistency */
-  background: linear-gradient(to bottom right, #e4e4e7 30%, #71717a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* ── Work lists ─────────────────────────────────────────────── */
+
+.work {
+  display: flex;
+  flex-direction: column;
+  gap: 1.9rem;
 }
 
-/* ============================================
-   UTILITIES
-   ============================================ */
-.link-underline {
+.work-item {
+  margin: 0;
+}
+
+.work-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 0.85rem;
+}
+
+.work-name {
+  font-size: 1.18rem;
+  font-weight: 500;
+  color: var(--strong);
+}
+
+.work-meta {
+  font-family: var(--mono);
+  font-size: var(--mono-sm);
+  letter-spacing: 0.02em;
+  color: var(--faint);
+}
+
+.work-blurb {
+  margin: 0.35rem 0 0;
+  color: var(--dim);
+  max-width: 34rem;
+  text-wrap: pretty;
+}
+
+.work-links {
+  margin-top: 0.5rem;
+  font-family: var(--mono);
+  font-size: var(--mono-md);
+  letter-spacing: 0.01em;
+  color: var(--faint);
+}
+
+.work-links a {
+  text-decoration-color: var(--accent-line);
+}
+
+.work-links a + a {
+  margin-left: 1rem;
+}
+
+/* compact one-line items */
+.compact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.compact-item {
+  margin: 0;
+  color: var(--dim);
+  text-wrap: pretty;
+}
+
+.compact-item .work-name {
+  font-size: 1rem;
+}
+
+.compact-item .sep {
+  color: var(--faint);
+  padding: 0 0.4rem;
+}
+
+.compact-item a:not(.work-name) {
+  font-family: var(--mono);
+  font-size: var(--mono-md);
+  text-decoration-color: var(--accent-line);
+}
+
+.archive-link {
+  margin: 1.6rem 0 0;
+  font-family: var(--mono);
+  font-size: var(--mono-md);
+  letter-spacing: 0.02em;
+}
+
+/* ── Research / recognition ─────────────────────────────────── */
+
+.recognition {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.recognition li {
+  color: var(--text);
+  padding-left: 1.1rem;
   position: relative;
-  text-decoration: none;
 }
 
-.link-underline::after {
+.recognition li::before {
   content: '';
   position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 1px;
-  bottom: -2px;
   left: 0;
-  background-color: #fafafa;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+  top: 0.72em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.detail {
+  margin: 0;
+  color: var(--dim);
+}
+
+/* ── Contact ────────────────────────────────────────────────── */
+
+.contact-links {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: var(--mono-md);
+  letter-spacing: 0.01em;
+  line-height: 2;
+  color: var(--dim);
+}
+
+.contact-links a,
+.copy-email {
+  text-decoration-color: var(--accent-line);
+}
+
+.copy-email {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2.5px;
+  text-decoration-color: var(--accent-line);
+  transition: text-decoration-color 150ms ease;
+}
+
+@media (hover: hover) {
+  .copy-email:hover,
+  .work-links a:hover,
+  .compact-item a:not(.work-name):hover,
+  .contact-links a:hover,
+  .colophon a:hover {
+    text-decoration-color: var(--strong);
   }
+}
 
-.link-underline:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
+.copied {
+  margin-left: 0.55rem;
+  color: var(--accent);
+  font-style: normal;
+}
+
+.colophon {
+  margin-top: 5rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: var(--mono-sm);
+  letter-spacing: 0.01em;
+  color: var(--faint);
+  line-height: 1.8;
+}
+
+.colophon a {
+  text-decoration-color: var(--accent-line);
+}
+
+/* ── Motion: one staggered fade on load, nothing on scroll ──── */
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: rise 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
   }
-
-/* Marquee */
-.marquee-container {
-  overflow: hidden;
-  white-space: nowrap;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-}
-
-.marquee-content {
-  display: inline-flex;
-  animation: marquee 40s linear infinite;
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* Hide cursor on touch */
-@media (pointer: coarse) {
-  #custom-cursor { display: none; }
+  @keyframes rise {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }
