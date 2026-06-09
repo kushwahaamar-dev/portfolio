@@ -130,7 +130,7 @@ export const Hero = () => {
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-zinc-500"></span>
               </span>
               <span className="text-sm font-mono text-zinc-500 tracking-wider">
-                Available for opportunities
+                Lubbock · Research + agentic AI
               </span>
             </div>
 
@@ -155,9 +155,12 @@ export const Hero = () => {
 
             {/* Subtitle */}
             <p className="hero-subtitle text-xl md:text-2xl text-zinc-400 max-w-2xl mb-12 leading-relaxed">
-              CS @ <span className="text-white font-medium">Texas Tech</span> · Building
-              <span className="text-white"> AI that ships</span> · Research in
-              <span className="text-zinc-300"> Brain-Computer Interfaces</span>
+              <span className="text-white font-medium">{resumeData.personal.title}</span>
+              <br />
+              <span className="text-zinc-400">
+                Agentic AI · LLM tooling · neurotech simulation — incoming intern @ Tempora Labs,
+                summer 2026.
+              </span>
             </p>
 
             {/* CTA Buttons */}
@@ -218,8 +221,8 @@ export const Hero = () => {
                       <Cpu className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <p className="font-medium text-sm">Building & Researching</p>
-                      <p className="text-xs text-zinc-400">Neural Architectures</p>
+                      <p className="font-medium text-sm">Tempora + TTU research</p>
+                      <p className="text-xs text-zinc-400">Agent stacks · connectomes · evals</p>
                     </div>
                   </div>
                 </div>
@@ -229,7 +232,10 @@ export const Hero = () => {
                   <p className="text-xs text-zinc-500 uppercase tracking-wider mb-2">Latest Activity</p>
                   <div className="p-3 rounded-lg bg-zinc-900 border border-zinc-800">
                     <p className="font-mono text-xs text-zinc-400 mb-1">git commit -m</p>
-                    <p className="text-sm text-zinc-300">"won 2 hackathons @ ETHDenver, momentum rising, more to come"</p>
+                    <p className="text-sm text-zinc-300">
+                      &quot;ETHDenver dual-track · Hook &apos;Em Best Use of Solana — shipping agent + chain
+                      infra&quot;
+                    </p>
                   </div>
                 </div>
 
@@ -240,7 +246,9 @@ export const Hero = () => {
                       <MapPin className="w-3 h-3" />
                       <span className="text-xs">Location</span>
                     </div>
-                    <p className="text-sm font-medium text-white">Austin / SF</p>
+                    <p className="text-sm font-medium text-white">
+                      {resumeData.personal.location}
+                    </p>
                   </div>
                   <div>
                     <div className="flex items-center gap-2 text-zinc-500 mb-1">

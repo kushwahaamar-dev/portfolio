@@ -12,7 +12,15 @@ export interface Experience {
   role: string;
   company: string;
   period: string;
+  location?: string;
   description: string[];
+  /** Shown as a pill on the card, e.g. "Current" or "Summer 2026" */
+  statusLabel?: string;
+}
+
+export interface Achievement {
+  name: string;
+  result: string;
 }
 
 export interface Publication {
@@ -53,5 +61,6 @@ export interface ResumeData {
   projects: Project[];
   skills: Skill[];
   publications: Publication[];
+  achievements: Achievement[];
 }
 

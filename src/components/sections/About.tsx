@@ -3,22 +3,24 @@ import { resumeData } from '../../data/resume';
 import { Code2, Brain, Database, Rocket, GraduationCap, Trophy, Target } from 'lucide-react';
 
 const highlights = [
-  { icon: Code2, label: "Projects Shipped", value: "9+", color: "#ffffff" },
-  { icon: Trophy, label: "Hackathon Wins", value: "5x", color: "#e4e4e7" },
-  { icon: Target, label: "Research Focus", value: "BCI", color: "#d4d4d8" },
+  { icon: Code2, label: "Projects Shipped", value: "12+", color: "#ffffff" },
+  { icon: Trophy, label: "Major hack wins", value: `${resumeData.achievements.length}+`, color: "#e4e4e7" },
+  { icon: Target, label: "Research focus", value: "Networks + BCI", color: "#d4d4d8" },
 ];
 
 const expertise = [
   {
     icon: Brain,
-    title: "BCI Research",
-    description: "Analyzing EEG signals to predict cognitive states. Published work on seizure suppression patterns.",
+    title: "Neurotech simulation",
+    description:
+      "Large-scale brain network models, seizure dynamics, tractography-informed visualization — co-author on Frontiers (Fractal Physiology).",
     color: "#ffffff"
   },
   {
     icon: Database,
-    title: "LLM Applications",
-    description: "Production RAG systems with Gemini, LangChain, and vector databases. Not just demos.",
+    title: "Agentic AI & LLM systems",
+    description:
+      "RAG, tool calling, multi-agent orchestration, evaluations, and inference-aware design — production paths, not toy demos.",
     color: "#e4e4e7"
   },
   {
@@ -30,7 +32,8 @@ const expertise = [
   {
     icon: Rocket,
     title: "Web3",
-    description: "Solana programs in Rust. Built audit trail systems on-chain.",
+    description:
+      "Solana-first agents, treasuries, and verification — plus Polkadot / EVM when the problem calls for it.",
     color: "#a1a1aa"
   }
 ];

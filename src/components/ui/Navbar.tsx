@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Terminal, Cpu, Layers, User, Mail } from 'lucide-react';
+import { Menu, X, Terminal, Cpu, Layers, User, Mail, Award } from 'lucide-react';
 import { clsx } from 'clsx';
 
 const navItems = [
   { name: 'About', href: '#about', icon: User },
   { name: 'Skills', href: '#skills', icon: Cpu },
   { name: 'Projects', href: '#projects', icon: Layers },
+  { name: 'Achievements', href: '#achievements', icon: Award },
   { name: 'Contact', href: '#contact', icon: Mail },
 ];
 

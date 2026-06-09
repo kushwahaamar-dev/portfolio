@@ -8,6 +8,7 @@ import { Skills } from './components/sections/Skills';
 import { Publications } from './components/sections/Publications';
 import { Projects } from './components/sections/Projects';
 import { Experience } from './components/sections/Experience';
+import { Achievements } from './components/sections/Achievements';
 import { Contact } from './components/sections/Contact';
 import { CustomCursor } from './components/ui/CustomCursor';
 import { ArrowUp, Github, Linkedin, Mail, Instagram } from 'lucide-react';
@@ -89,6 +90,7 @@ function App() {
         <Skills />
         <Publications />
         <Projects />
+        <Achievements />
         <Experience />
         <Contact />
         
@@ -102,8 +104,8 @@ function App() {
                   Amar<span className="text-gradient">.</span>
                 </h3>
                 <p className="text-gray-500 leading-relaxed">
-                  Computer Science Engineer & AI Researcher building 
-                  the future of human-computer interaction.
+                  Agentic AI, full-stack systems, and neurotech simulation — Texas Tech Honors, incoming
+                  @ Tempora Labs.
                 </p>
               </div>
 
@@ -113,7 +115,7 @@ function App() {
                   Quick Links
                 </h4>
                 <ul className="space-y-3">
-                  {['About', 'Skills', 'Projects', 'Contact'].map((item) => (
+                  {['About', 'Skills', 'Projects', 'Achievements', 'Contact'].map((item) => (
                     <li key={item}>
                       <a 
                         href={`#${item.toLowerCase()}`}

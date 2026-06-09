@@ -3,187 +3,264 @@ import type { ResumeData } from '../types';
 export const resumeData: ResumeData = {
   personal: {
     name: "Amar Kushwaha",
-    title: "CS Student & Builder",
+    title: "CS @ Texas Tech · Agentic AI & Neurotech",
     email: "amkushwa@ttu.edu",
-    location: "Austin/SF",
+    location: "Lubbock, TX",
     linkedin: "https://www.linkedin.com/in/kushwaha-amar",
     x: "https://x.com/amarkushwaha__",
     instagram: "https://www.instagram.com/_a__m_a_r_/",
     phone: "806-559-5600",
-    summary: "I build AI systems that work. Currently researching brain-computer interfaces at Texas Tech while shipping production-grade LLM applications. 5x hackathon winner."
+    summary:
+      "I design and ship LLM systems end-to-end: retrieval + tool calling, multi-agent orchestration, evaluations, and production integrations. At Texas Tech I model large-scale brain networks for epilepsy research (Frontiers co-author). Incoming Applied Scientist Intern (Agentic AI) at Tempora Labs — summer 2026.",
   },
   education: {
     school: "Texas Tech University",
-    degree: "Bachelor of Science in Computer Science, Engineering, Honors College",
-    graduation: "May 2028",
-    gpa: "4.0"
+    degree: "B.S. Computer Science, Minor in Mathematics, Honors College",
+    graduation: "Dec 2027",
+    gpa: "4.0",
   },
   experience: [
     {
-      role: "Undergraduate Research Scholar",
-      company: "TTU ECE | Honors College | TrUE",
-      period: "March 2025 - Present",
+      role: "Applied Scientist Intern — Agentic AI",
+      company: "Tempora Labs",
+      period: "May 25, 2026 — Aug 7, 2026",
+      location: "Remote · Lubbock, TX",
+      statusLabel: "Incoming · Summer 2026",
       description: [
-        "Conducting EEG data analysis focused on quantifying the impact of cognitive effort on seizure suppression.",
-        "Developing, tuning, and evaluating machine learning algorithms for predictive modeling, with emphasis on robust validation."
-      ]
-    }
+        "Shipping user-facing agent workflows: planning, tool-augmented reasoning, multi-agent orchestration, and human-in-the-loop review with clear failure modes.",
+        "Building retrieval-augmented, tool-calling LLM stacks for automated digital-asset investment flows — structured calls, ReAct-style reasoning, planner–executor patterns, reflection, and specialist agents.",
+        "Improving model quality with fine-tuning, prompt design, offline/online evaluations, and inference optimization (attention, positional encodings, KV cache); integrating market and on-chain data behind guarded interfaces.",
+        "Partnering with engineering, research, and product on fast iteration; translating architecture and tradeoffs via specs, deep-dives, and demos.",
+      ],
+    },
+    {
+      role: "Undergraduate Research Scholar",
+      company: "TTU ECE · Honors College · TrUE Program",
+      period: "Mar 2025 — Present",
+      location: "Lubbock, TX",
+      statusLabel: "Current",
+      description: [
+        "Simulating seizure propagation with Epileptor 6D on 76–998 region connectomes using reproducible, large-scale computational pipelines.",
+        "Accelerating experiments with Numba JIT (~1000×) and transmission-delay models for closed-loop control prototypes.",
+        "Combining Human Connectome Project tractography with interactive 3D tooling to support surgical planning workflows.",
+        "Co-author on peer-reviewed work in Frontiers in Network Physiology — Fractal Physiology.",
+      ],
+    },
+  ],
+  achievements: [
+    {
+      name: "Hook 'Em Hacks",
+      result:
+        "Winner · Best Use of Solana — Oath: pre-commitment & enforcement protocol for AI agents",
+    },
+    {
+      name: "ETHDenver 2026",
+      result:
+        "Dual-track winner with Kayden — Nouns Builder (governance UX & community tooling) + ADI Foundation track",
+    },
+    {
+      name: "TAMU Datathon 2025",
+      result:
+        "Winner, HackMLH — enterprise document workflow with Gemini AI, structured extraction, Solana audit logging",
+    },
+    {
+      name: "HackWesTX VI",
+      result:
+        "Dual winner — Best Use of Gemini API + 1st place Best Use of Web3 (Solana)",
+    },
   ],
   projects: [
     {
-      title: "Kayden",
-      description: "Autonomous AI agent infrastructure on Base. Agents deployed as iNFTs with Token Bound Accounts, self-sustaining via ERC-4337 paymaster, governed by Nouns Builder DAO.",
-      tech: ["Solidity", "Next.js 15", "Foundry", "ERC-6551", "ERC-4337", "wagmi"],
+      title: "Universal Sentinel",
+      description:
+        "Full-stack disaster response: GDACS / NASA / NOAA ingestion, FastAPI services, React UI, AI-gated payouts, and auditable on-chain treasury flows with NGO verification.",
+      tech: ["Python", "FastAPI", "React", "Solana", "Gemini"],
       category: "Web3",
       featured: true,
-      link: "https://kayden-dao.vercel.app",
-      github: "https://github.com/kushwahaamar-dev/kayden"
+      link: "https://github.com/amarkushwaha/universal-sentinel",
+      github: "https://github.com/amarkushwaha/universal-sentinel",
     },
     {
-      title: "ZeroGate",
-      description: "Local-first content paywall on Polkadot. No accounts, no tracking. Uses Smoldot in-browser WASM light client for trustless tx verification. Creators get 100%, users own content forever.",
-      tech: ["Next.js 16", "Polkadot", "Smoldot", "polkadot-api", "Framer Motion"],
-      category: "Web3",
-      featured: true,
-      link: "https://v0id-one.vercel.app",
-      github: "https://github.com/kushwahaamar-dev/v0id"
-    },
-    {
-      title: "NEXUS",
-      description: "Neural EEG classification system achieving 76.66% accuracy on 4-class motor imagery using a 9-model deep learning ensemble with Euclidean Alignment and CSP+SVM.",
-      tech: ["Python", "PyTorch", "SciPy", "Scikit-learn", "NumPy"],
-      category: "Neurotech/BCI",
-      featured: true,
-      link: "https://github.com/kushwahaamar-dev/nexus",
-      github: "https://github.com/kushwahaamar-dev/nexus"
-    },
-    {
-      title: "TruthBlink",
-      description: "Browser extension and dApp bridging Web2 social media with Web3 prediction markets using Solana Blinks. Place USDC bets on viral claims directly from Twitter/X.",
-      tech: ["Solana", "Anchor", "Next.js", "Plasmo", "Gemini API"],
-      category: "Web3",
-      featured: true,
-      link: "https://github.com/kushwahaamar-dev/truth",
-      github: "https://github.com/kushwahaamar-dev/truth"
-    },
-    {
-      title: "Torpe Hitachi Classifier",
-      description: "Enterprise-grade AI document classification platform using Google Gemini 2.0 Flash. Integrates RAG/CAG pipelines and Solana blockchain for immutable audit trails.",
-      tech: ["Gemini 2.0", "Solana", "RAG/CAG", "Python", "React"],
-      category: "AI/ML",
-      featured: true,
-      link: "https://github.com/kushwahaamar-dev/doc-classifier",
-      github: "https://github.com/kushwahaamar-dev/doc-classifier"
-    },
-    {
-      title: "VEP Brain Modeling",
-      description: "Virtual Epileptic Patient framework simulating seizure propagation in individual brains. Implements Epileptor neural mass model with TVB integration for personalized epilepsy surgery planning.",
-      tech: ["Python", "Numba", "TVB", "Plotly", "NumPy"],
-      category: "Research",
-      featured: true,
-      link: "https://github.com/kushwahaamar-dev/brain-modeling-research",
-      github: "https://github.com/kushwahaamar-dev/brain-modeling-research"
-    },
-    {
-      title: "Git0X CLI",
-      description: "CLI tool to scan code for exposed secrets before committing. 70+ detection patterns for AI keys, cloud providers, databases, and more. Pre-commit hooks, SARIF output, CI/CD ready.",
-      tech: ["Node.js", "CLI", "Security", "NPM"],
+      title: "git0x-cli",
+      description:
+        "Production CLI secret scanner: 70+ patterns, SARIF + JSON, GitHub Actions, pre-commit hooks, baseline allowlists for low noise in enterprise CI.",
+      tech: ["Node.js", "JavaScript", "SARIF", "GitHub Actions"],
       category: "DevSecOps",
       featured: true,
       link: "https://www.npmjs.com/package/git0x",
-      github: "https://github.com/kushwahaamar-dev/git0x-cli"
+      github: "https://github.com/kushwahaamar-dev/git0x-cli",
     },
     {
-      title: "LogX+ AI Platform",
-      description: "AI web app converting raw logs into structured insights. Features client-side RAG using TF-IDF + cosine similarity over localStorage.",
-      tech: ["React", "Gemini API", "TF-IDF", "LocalStorage"],
-      category: "Full Stack",
+      title: "Kayden",
+      description:
+        "Autonomous AI agent stack on Base — agents as iNFTs with Token Bound Accounts, ERC-4337 paymaster, Nouns Builder DAO governance (ETHDenver build).",
+      tech: ["Solidity", "Next.js", "Foundry", "ERC-6551", "wagmi"],
+      category: "Web3",
       featured: true,
-      link: "https://github.com/kushwahaamar-dev/logx-",
-      github: "https://github.com/kushwahaamar-dev/logx-"
+      link: "https://kayden-dao.vercel.app",
+      github: "https://github.com/kushwahaamar-dev/kayden",
     },
     {
-      title: "BCI Signal Analysis",
-      description: "Comprehensive Python pipeline for EEG motor imagery analysis. Implemented Artifact detection, ERD, PSD, and Multifractal Detrended Fluctuation Analysis (MFDFA).",
-      tech: ["Python", "EEG", "Scikit-learn", "MFDFA", "LDA"],
-      category: "Research",
+      title: "Oath",
+      description:
+        "Solana-side pre-commitment and enforcement for AI agents — Hook 'Em Hacks Best Use of Solana winner.",
+      tech: ["Solana", "Rust", "Anchor", "TypeScript"],
+      category: "Web3",
       featured: true,
-      link: "https://github.com/kushwahaamar-dev/bci_eeg_mfdfa",
-      github: "https://github.com/kushwahaamar-dev/bci_eeg_mfdfa"
+      link: "https://oa-th.wiki",
+      github: "https://github.com/kushwahaamar-dev/oath",
     },
     {
-      title: "Website RAG Query System",
-      description: "RAG-based query system using Streamlit and DeepSeek-R1 for context-aware website content querying.",
-      tech: ["Streamlit", "LangChain", "FAISS", "Ollama"],
+      title: "ZeroGate",
+      description:
+        "Local-first Polkadot paywall: in-browser Smoldot light client, trustless verification, creator-first economics (Blockspace Church winner).",
+      tech: ["Next.js", "Polkadot", "Smoldot", "Framer Motion"],
+      category: "Web3",
+      featured: true,
+      link: "https://v0id-one.vercel.app",
+      github: "https://github.com/kushwahaamar-dev/v0id",
+    },
+    {
+      title: "NEXUS",
+      description:
+        "9-model EEG motor-imagery ensemble (76.66% 4-class accuracy); Euclidean Alignment + deep nets + CSP/SVM with Dirichlet weight search.",
+      tech: ["PyTorch", "SciPy", "scikit-learn", "EEGNet"],
+      category: "Neurotech/BCI",
+      featured: true,
+      link: "https://github.com/kushwahaamar-dev/nexus",
+      github: "https://github.com/kushwahaamar-dev/nexus",
+    },
+    {
+      title: "TruthBlink",
+      description:
+        "Browser extension + dApp: Solana Blinks for prediction markets from social feeds; Gemini-assisted flows.",
+      tech: ["Solana", "Anchor", "Next.js", "Gemini API"],
+      category: "Web3",
+      featured: false,
+      link: "https://github.com/kushwahaamar-dev/truth",
+      github: "https://github.com/kushwahaamar-dev/truth",
+    },
+    {
+      title: "Enterprise Doc Classifier",
+      description:
+        "Gemini-powered document classification with RAG/CAG-style pipelines and Solana audit trails (TAMU Datathon / HackMLH lineage).",
+      tech: ["Gemini", "Python", "React", "Solana"],
       category: "AI/ML",
       featured: false,
-      link: "http://github.com/kushwahaamar-dev/WebRAG-/",
-      github: "http://github.com/kushwahaamar-dev/WebRAG-/"
+      link: "https://github.com/kushwahaamar-dev/doc-classifier",
+      github: "https://github.com/kushwahaamar-dev/doc-classifier",
     },
     {
-      title: "RLM Implementation",
-      description: "Reasoning Language Model implementation with multi-step inference and chain-of-thought capabilities for enhanced AI reasoning.",
-      tech: ["Python", "PyTorch", "Transformers", "LangChain"],
+      title: "VEP Brain Modeling",
+      description:
+        "Virtual epileptic patient simulations: Epileptor 6D, delays, TVB-adjacent workflows, 3D visualization for intervention planning.",
+      tech: ["Python", "Numba", "Plotly", "NumPy"],
+      category: "Research",
+      featured: false,
+      link: "https://github.com/kushwahaamar-dev/brain-modeling-research",
+      github: "https://github.com/kushwahaamar-dev/brain-modeling-research",
+    },
+    {
+      title: "LogX+",
+      description:
+        "Log → insight web app with client-side RAG (TF-IDF + cosine) and Gemini augmentation.",
+      tech: ["React", "Gemini", "TF-IDF"],
+      category: "Full Stack",
+      featured: false,
+      link: "https://github.com/kushwahaamar-dev/logx-",
+      github: "https://github.com/kushwahaamar-dev/logx-",
+    },
+    {
+      title: "BCI Signal Lab",
+      description:
+        "EEG motor-imagery pipeline: artifacts, ERD/ERS, PSD, multifractal / MFDFA-style analyses.",
+      tech: ["Python", "scikit-learn", "MNE"],
+      category: "Research",
+      featured: false,
+      link: "https://github.com/kushwahaamar-dev/bci_eeg_mfdfa",
+      github: "https://github.com/kushwahaamar-dev/bci_eeg_mfdfa",
+    },
+    {
+      title: "Website RAG",
+      description:
+        "Streamlit RAG over site content with vector search and local / API LLM backends.",
+      tech: ["Streamlit", "LangChain", "FAISS"],
+      category: "AI/ML",
+      featured: false,
+      link: "https://github.com/kushwahaamar-dev/WebRAG-",
+      github: "https://github.com/kushwahaamar-dev/WebRAG-",
+    },
+    {
+      title: "RLM prototype",
+      description:
+        "Multi-step reasoning / chain-style language model experiments on PyTorch.",
+      tech: ["Python", "PyTorch", "Transformers"],
       category: "AI/ML",
       featured: false,
       link: "https://github.com/kushwahaamar-dev/rlms",
-      github: "https://github.com/kushwahaamar-dev/rlms"
+      github: "https://github.com/kushwahaamar-dev/rlms",
     },
     {
-      title: "Tsinghua Sorting Barrier",
-      description: "Interactive algorithm visualization comparing Dijkstra's shortest path with optimized barrier algorithms on real-world map data.",
-      tech: ["TypeScript", "Leaflet", "OpenStreetMap", "Vite"],
+      title: "Sorting Barrier Viz",
+      description:
+        "Interactive shortest-path vs barrier algorithms on real map tiles (TypeScript + Leaflet).",
+      tech: ["TypeScript", "Leaflet", "Vite"],
       category: "Research",
       featured: false,
       link: "https://sorting-barrier.vercel.app/",
-      github: "https://github.com/kushwahaamar-dev/sorting-barrier"
-    }
+      github: "https://github.com/kushwahaamar-dev/sorting-barrier",
+    },
   ],
   skills: [
-    // Languages
     { name: "Python", level: 95, category: "Languages" },
     { name: "TypeScript", level: 92, category: "Languages" },
     { name: "JavaScript", level: 90, category: "Languages" },
+    { name: "SQL", level: 88, category: "Languages" },
     { name: "C", level: 85, category: "Languages" },
-    { name: "SQL", level: 85, category: "Languages" },
-    { name: "Rust", level: 75, category: "Languages" },
+    { name: "Rust", level: 76, category: "Languages" },
 
-    // AI/ML
-    { name: "Gemini API", level: 95, category: "AI/ML" },
-    { name: "LangChain", level: 90, category: "AI/ML" },
-    { name: "RAG Pipelines", level: 92, category: "AI/ML" },
-    { name: "TensorFlow", level: 85, category: "AI/ML" },
-    { name: "PyTorch", level: 82, category: "AI/ML" },
-    { name: "Scikit-learn", level: 88, category: "AI/ML" },
-    { name: "FAISS", level: 85, category: "AI/ML" },
-    { name: "NumPy/Pandas", level: 92, category: "AI/ML" },
-    { name: "Ollama", level: 80, category: "AI/ML" },
+    { name: "LangChain", level: 92, category: "AI/ML" },
+    { name: "Gemini API", level: 94, category: "AI/ML" },
+    { name: "RAG / tool calling", level: 93, category: "AI/ML" },
+    { name: "PyTorch", level: 88, category: "AI/ML" },
+    { name: "TensorFlow", level: 84, category: "AI/ML" },
+    { name: "scikit-learn", level: 88, category: "AI/ML" },
+    { name: "FAISS", level: 86, category: "AI/ML" },
+    { name: "NumPy / scientific Python", level: 92, category: "AI/ML" },
 
-    // Web
-    { name: "React", level: 92, category: "Web" },
-    { name: "Node.js", level: 88, category: "Web" },
-    { name: "Flask", level: 85, category: "Web" },
+    { name: "React", level: 93, category: "Web" },
+    { name: "Next.js", level: 90, category: "Web" },
+    { name: "Node.js", level: 89, category: "Web" },
+    { name: "FastAPI", level: 90, category: "Web" },
+    { name: "Tailwind CSS", level: 91, category: "Web" },
     { name: "Vite", level: 90, category: "Web" },
-    { name: "Tailwind CSS", level: 92, category: "Web" },
-    { name: "Three.js/R3F", level: 80, category: "Web" },
-    { name: "Streamlit", level: 85, category: "Web" },
-    { name: "Solana/Anchor", level: 78, category: "Web" },
+    { name: "Three.js / R3F", level: 82, category: "Web" },
+    { name: "Solana / Anchor", level: 80, category: "Web" },
 
-    // Tools
-    { name: "Git/GitHub", level: 95, category: "Tools" },
-    { name: "Docker", level: 85, category: "Tools" },
-    { name: "SQLAlchemy", level: 82, category: "Tools" },
-    { name: "Pydantic", level: 85, category: "Tools" },
-    { name: "Turborepo", level: 78, category: "Tools" },
-    { name: "GSAP", level: 80, category: "Tools" }
+    { name: "Git / GitHub", level: 95, category: "Tools" },
+    { name: "Docker", level: 86, category: "Tools" },
+    { name: "GitHub Actions / CI", level: 90, category: "Tools" },
+    { name: "PostgreSQL", level: 84, category: "Tools" },
+    { name: "Linux", level: 88, category: "Tools" },
+    { name: "GSAP", level: 82, category: "Tools" },
   ],
   publications: [
     {
-      title: "Quantifying Cognitive Effort's Impact on Suppression of Epilepsy-Associated After Discharges",
-      journal: "Frontiers in Network Physiology - Fractal Physiology",
-      authors: ["Pavan Beeram", "Matthew Farris", "Samir Hossain", "Nicholas Rethans", "Amar Kushwaha", "Shruti Dayanand Chougule", "Joon Y. Kang", "Emily A. Pereira"],
+      title:
+        "Quantifying Cognitive Effort's Impact on Suppression of Epilepsy-Associated After Discharges",
+      journal: "Frontiers in Network Physiology — Fractal Physiology",
+      authors: [
+        "Pavan Beeram",
+        "Matthew Farris",
+        "Samir Hossain",
+        "Nicholas Rethans",
+        "Amar Kushwaha",
+        "Shruti Dayanand Chougule",
+        "Joon Y. Kang",
+        "Emily A. Pereira",
+      ],
       status: "in review",
-      year: 2025
-    }
-  ]
+      year: 2025,
+    },
+  ],
 };

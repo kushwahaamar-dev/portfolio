@@ -133,18 +133,32 @@ export const Experience = () => {
                         <h3 className="text-xl font-bold text-white group-hover:text-zinc-200 transition-all">
                           {exp.role}
                         </h3>
-                        <div className="flex items-center gap-2 text-zinc-400 text-sm mt-1">
-                          <MapPin className="w-3 h-3" />
-                          <span>{exp.company}</span>
+                        <div className="flex flex-col gap-0.5 text-zinc-400 text-sm mt-1">
+                          <div className="flex items-center gap-2">
+                            <MapPin className="w-3 h-3 shrink-0" />
+                            <span>
+                              {exp.company}
+                              {exp.location ? ` · ${exp.location}` : ''}
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
 
-                    {/* Status Badge */}
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 text-zinc-300 border border-zinc-800 text-xs font-medium mb-6">
-                      <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                      Current Position
-                    </span>
+                    {exp.statusLabel ? (
+                      <span
+                        className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-medium mb-6 ${
+                          exp.statusLabel === 'Current'
+                            ? 'bg-zinc-900 text-zinc-200 border-zinc-800'
+                            : 'bg-zinc-900/80 text-zinc-400 border-zinc-800'
+                        }`}
+                      >
+                        {exp.statusLabel === 'Current' ? (
+                          <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                        ) : null}
+                        {exp.statusLabel}
+                      </span>
+                    ) : null}
 
                     {/* Description */}
                     <ul className="space-y-3">

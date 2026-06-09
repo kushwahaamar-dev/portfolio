@@ -102,8 +102,8 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
         <div className="absolute inset-0 cyber-grid opacity-20"></div>
 
         {/* Ambient Glows */}
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-neon-blue/5 rounded-full blur-[150px]"></div>
-        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-neon-orange/5 rounded-full blur-[150px]"></div>
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-sky-400/4 rounded-full blur-[150px]" />
+        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-violet-500/4 rounded-full blur-[150px]" />
       </div>
 
       {/* Content */}

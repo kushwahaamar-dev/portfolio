@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useMemo } from 'react';
 import { resumeData } from '../../data/resume';
 import { Github, ExternalLink, ArrowUpRight, Folder, Star } from 'lucide-react';
 const ProjectCard = ({ project }: { project: typeof resumeData.projects[0] }) => {
@@ -117,6 +117,10 @@ const ProjectCard = ({ project }: { project: typeof resumeData.projects[0] }) =>
 };
 export const Projects = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const sortedProjects = useMemo(
+    () => [...resumeData.projects].sort((a, b) => Number(b.featured) - Number(a.featured)),
+    []
+  );
   useEffect(() => {
     if (typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -174,7 +178,7 @@ export const Projects = () => {
               <span className="text-gradient"> built</span>
             </h2>
             <p className="text-xl text-zinc-400 leading-relaxed">
-              Real projects, real users, real impact.
+              Full-stack services, security tooling, Web3 agents, and research code — featured first.
             </p>
           </div>
           <a
@@ -189,7 +193,7 @@ export const Projects = () => {
         </div>
         {/* Projects Grid - 2x4 Matrix */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-          {resumeData.projects.map((project) => (
+          {sortedProjects.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
         </div>
