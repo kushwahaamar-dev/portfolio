@@ -55,6 +55,12 @@ now slashing needs no oracle. the `slash` instruction reads the `Attempt`, check
 
 > No oracle. No off-chain attestation. The on-chain Attempt IS the proof.
 
+## try it
+
+here's the exact classification the program runs, in your browser. set an action against an oath with a whitelist and caps, hit record — in-scope reserves it, out-of-scope mints a violation anyone can slash. same four checks, same order as the contract.
+
+<div data-oath-demo></div>
+
 ## the subtlety that took a second pass
 
 one distinction matters and i got it wrong the first time: *a malformed request is not a violation.*

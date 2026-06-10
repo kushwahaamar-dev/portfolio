@@ -59,10 +59,16 @@
   --accent-line: rgba(13, 125, 112, 0.45); /* quiet teal for utility underlines */
   --accent-soft: rgba(13, 125, 112, 0.14);
   --rule: rgba(20, 19, 18, 0.1);
+  --warn: #b3492f; /* scoped to the Oath demo's "violation" state, nowhere else */
+  --warn-soft: rgba(179, 73, 47, 0.12);
+  color-scheme: light;
 }
 
+/* dark tokens — applied when the system prefers dark (and the toggle hasn't
+   pinned light), or when the toggle explicitly pins dark. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
     --bg: #161615;
     --text: #cfcdc7;
     --strong: #f2f1ec;
@@ -72,7 +78,26 @@
     --accent-line: rgba(70, 165, 150, 0.5);
     --accent-soft: rgba(70, 165, 150, 0.18);
     --rule: rgba(255, 255, 255, 0.1);
+    --warn: #e0906f;
+    --warn-soft: rgba(224, 144, 111, 0.16);
   }
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #161615;
+  --text: #cfcdc7;
+  --strong: #f2f1ec;
+  --dim: #8d8b85;
+  --faint: #86847d;
+  --accent: #46a596;
+  --accent-line: rgba(70, 165, 150, 0.5);
+  --accent-soft: rgba(70, 165, 150, 0.18);
+  --rule: rgba(255, 255, 255, 0.1);
+  --warn: #e0906f;
+  --warn-soft: rgba(224, 144, 111, 0.16);
+}
+:root[data-theme='light'] {
+  color-scheme: light;
 }
 
 *,
@@ -554,6 +579,391 @@ h2.label {
   border: 0;
   border-top: 1px solid var(--rule);
   margin: 2.4rem 0;
+}
+
+/* ── View transitions: smooth cross-page morphs ─────────────── */
+
+@view-transition {
+  navigation: auto;
+}
+
+/* the site name persists across pages: the home <h1> morphs into the
+   "← …" back-link on subpages, and vice-versa. */
+.site-id,
+.back-link {
+  view-transition-name: site-id;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* ── Site controls (theme toggle + ⌘K hint), injected into colophon ─ */
+
+.site-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.6rem;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font: inherit;
+  font-family: var(--mono);
+  font-size: var(--mono-sm);
+  letter-spacing: 0.04em;
+  color: var(--faint);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+
+.theme-toggle svg {
+  width: 13px;
+  height: 13px;
+  display: block;
+}
+
+.cmdk-hint {
+  font-family: var(--mono);
+  font-size: var(--mono-sm);
+  letter-spacing: 0.04em;
+  color: var(--faint);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+
+.cmdk-hint kbd {
+  font: inherit;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 0.05em 0.35em;
+}
+
+@media (hover: hover) {
+  .theme-toggle:hover,
+  .cmdk-hint:hover {
+    color: var(--strong);
+  }
+}
+
+/* ── Command palette (⌘K) ───────────────────────────────────── */
+
+.cmdk {
+  width: min(34rem, calc(100vw - 2rem));
+  max-height: 60vh;
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--text);
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.35);
+  margin-top: 14vh;
+  overflow: hidden;
+}
+
+.cmdk::backdrop {
+  background: color-mix(in srgb, var(--strong) 28%, transparent);
+  backdrop-filter: blur(2px);
+}
+
+.cmdk[open] {
+  animation: cmdk-in 160ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes cmdk-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.99);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cmdk[open] {
+    animation: none;
+  }
+}
+
+.cmdk-input {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--strong);
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  padding: 1rem 1.25rem;
+  outline: none;
+}
+
+.cmdk-input::placeholder {
+  color: var(--faint);
+}
+
+.cmdk-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem;
+  overflow-y: auto;
+  max-height: calc(60vh - 3.4rem);
+}
+
+.cmdk-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 7px;
+  cursor: pointer;
+  scroll-margin: 0.4rem;
+}
+
+.cmdk-item[aria-selected='true'] {
+  background: var(--accent-soft);
+}
+
+.cmdk-item-label {
+  color: var(--strong);
+}
+
+.cmdk-item-group {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: var(--mono-sm);
+  letter-spacing: 0.03em;
+  color: var(--faint);
+}
+
+.cmdk-empty {
+  padding: 1.4rem 1.25rem;
+  color: var(--faint);
+}
+
+/* ── Motion polish ──────────────────────────────────────────── */
+
+.copy-email {
+  transition: text-decoration-color 150ms ease, transform 120ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.copy-email:active {
+  transform: scale(0.96);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .copy-email:active {
+    transform: none;
+  }
+}
+
+/* ── Oath demo (in the "delete the oracle" post) ────────────── */
+
+.oath-demo {
+  margin: 2rem 0;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 1.25rem 1.3rem 1.4rem;
+  font-size: 0.95rem;
+}
+
+.oath-demo-label {
+  font-family: var(--mono);
+  font-size: var(--mono-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 0.9rem;
+}
+
+.oath-rules {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--dim);
+  margin: 0 0 1.1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.oath-rules b {
+  color: var(--strong);
+  font-weight: 500;
+}
+
+.oath-field {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.8rem;
+  margin-bottom: 0.7rem;
+}
+
+.oath-field > span {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--faint);
+  min-width: 5.2rem;
+}
+
+.oath-demo select,
+.oath-demo input[type='number'] {
+  font: inherit;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--strong);
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 0.3rem 0.5rem;
+}
+
+.oath-presets {
+  display: flex;
+  gap: 0.6rem;
+  margin: 0.4rem 0 1rem;
+}
+
+.oath-btn {
+  font: inherit;
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+  color: var(--dim);
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  transition: border-color 150ms ease, color 150ms ease;
+}
+
+.oath-btn:hover {
+  color: var(--strong);
+  border-color: var(--accent);
+}
+
+.oath-btn-primary {
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.oath-btn-primary:hover {
+  color: var(--bg);
+  filter: brightness(1.08);
+}
+
+.oath-flow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--faint);
+  margin: 1.1rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+}
+
+.oath-node {
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  transition: all 200ms ease;
+}
+
+.oath-node[data-on='pending'] {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.oath-node[data-on='violation'],
+.oath-node[data-on='slash'] {
+  color: var(--warn);
+  border-color: var(--warn);
+  background: var(--warn-soft);
+}
+
+.oath-node[data-on='commit'] {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.oath-result {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--rule);
+}
+
+.oath-result[data-state='pending'] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.oath-result[data-state='violation'],
+.oath-result[data-state='slashed'] {
+  border-color: var(--warn);
+  background: var(--warn-soft);
+}
+
+.oath-result-head {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 0.35rem;
+}
+
+.oath-result[data-state='pending'] .oath-result-head,
+.oath-result[data-state='committed'] .oath-result-head {
+  color: var(--accent);
+}
+
+.oath-result[data-state='violation'] .oath-result-head,
+.oath-result[data-state='slashed'] .oath-result-head {
+  color: var(--warn);
+}
+
+.oath-result p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.oath-result-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.7rem;
+}
+
+.oath-meter {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--faint);
+  margin-top: 0.6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oath-node {
+    transition: none;
+  }
 }
 
 /* ── Motion: one staggered fade on load, nothing on scroll ──── */

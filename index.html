@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate icon" href="/favicon.ico" sizes="32x32" />
 
@@ -54,7 +60,7 @@
 
   <body>
     <header class="masthead band" data-animate style="animation-delay: 0ms">
-      <h1>Amar Kushwaha</h1>
+      <h1 class="site-id">Amar Kushwaha</h1>
       <p class="intro">
         I’m a computer-science student in the Honors College at
         <a href="https://www.ttu.edu" target="_blank" rel="noopener noreferrer"><strong>Texas Tech</strong></a>. Two
