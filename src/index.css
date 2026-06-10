@@ -411,6 +411,151 @@ h2.label {
   text-wrap: pretty;
 }
 
+/* ── Writing: index list ────────────────────────────────────── */
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+}
+
+.post-row {
+  display: block;
+  text-decoration: none;
+}
+
+.post-row-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 0.85rem;
+}
+
+.post-row .work-name {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2.5px;
+  text-decoration-color: var(--accent);
+}
+
+.post-row-dek {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--dim);
+  text-wrap: pretty;
+}
+
+@media (hover: hover) {
+  .post-row:hover .work-name {
+    text-decoration-color: var(--strong);
+  }
+}
+
+/* ── Writing: post page ─────────────────────────────────────── */
+
+.post {
+  max-width: 36rem;
+}
+
+.post h1 {
+  font-family: var(--serif-display);
+  font-size: clamp(1.7rem, 4.5vw, 2.1rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+  text-wrap: balance;
+  color: var(--strong);
+  margin: 0 0 0.7rem;
+}
+
+.post-meta {
+  margin: 0 0 2.6rem;
+  font-family: var(--mono);
+  font-size: var(--mono-sm);
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: 0.04em;
+  color: var(--faint);
+}
+
+.post-body {
+  color: var(--text);
+}
+
+.post-body p {
+  margin: 0 0 1.35rem;
+  text-wrap: pretty;
+}
+
+.post-body h2 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--strong);
+  margin: 2.6rem 0 1rem;
+}
+
+.post-body strong {
+  font-weight: 500;
+  color: var(--strong);
+}
+
+.post-body a {
+  text-decoration-color: var(--accent);
+}
+
+.post-body ul,
+.post-body ol {
+  margin: 0 0 1.35rem;
+  padding-left: 1.3rem;
+}
+
+.post-body li {
+  margin-bottom: 0.5rem;
+}
+
+.post-body code {
+  font-family: var(--mono);
+  font-size: 0.82em;
+  background: var(--accent-soft);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+.post-body pre {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--strong) 3%, transparent);
+  line-height: 1.55;
+}
+
+.post-body pre code {
+  font-size: 0.8rem;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.post-body blockquote {
+  margin: 0 0 1.35rem;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--accent);
+  color: var(--dim);
+  font-style: italic;
+}
+
+.post-body blockquote p {
+  margin-bottom: 0.5rem;
+}
+
+.post-body hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 2.4rem 0;
+}
+
 /* ── Motion: one staggered fade on load, nothing on scroll ──── */
 
 @media (prefers-reduced-motion: no-preference) {

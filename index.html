@@ -56,16 +56,18 @@
     <header class="masthead band" data-animate style="animation-delay: 0ms">
       <h1>Amar Kushwaha</h1>
       <p class="intro">
-        I’m a computer-science student at
-        <a href="https://www.ttu.edu" target="_blank" rel="noopener noreferrer"><strong>Texas Tech</strong></a>, in the
-        Honors College, studying agentic AI and how seizures move through the brain. I build software end-to-end — a
-        secret scanner people install from npm, tooling that keeps AI agents honest, EEG models, a disaster-response
-        platform.
+        I’m a computer-science student in the Honors College at
+        <a href="https://www.ttu.edu" target="_blank" rel="noopener noreferrer"><strong>Texas Tech</strong></a>. Two
+        things have my attention: AI agents that have to prove they behaved, and how a seizure spreads from one brain
+        region to the next. The agent side has turned into real things — a secret scanner you install from npm, contracts
+        that slash an agent’s stake when it breaks its word, a payment stream that pays an AI only for work it can prove.
+        The brain side runs the kind of model used to plan epilepsy surgery, about a thousand times faster.
       </p>
       <p class="now">
-        <strong>Now</strong> <span class="now-date">June 2026</span> — joining
+        <strong>Now</strong> <span class="now-date">June 2026</span> — Applied Scientist Intern at
         <a href="https://www.linkedin.com/company/tempora-labs" target="_blank" rel="noopener noreferrer">Tempora Labs</a>
-        as an Applied Scientist Intern in agentic AI this summer, and researching epileptic brain networks at Texas Tech.
+        this summer, on agentic AI. The rest of my time goes to the epilepsy lab, where we’re testing whether cognitive
+        effort can quiet a seizure before it spreads.
       </p>
     </header>
 
@@ -79,8 +81,9 @@
               <span class="work-meta">on npm · 70 detection patterns</span>
             </div>
             <p class="work-blurb">
-              A command-line tool that catches leaked secrets — API keys, tokens, passwords — before they ever reach a
-              commit.
+              A command-line scanner that installs as a git pre-commit hook, so a leaked AWS key or private key gets
+              blocked before the commit lands — not flagged after it’s already pushed. 70 patterns, with SARIF output for
+              GitHub code scanning.
             </p>
             <div class="work-links">
               <a href="https://www.npmjs.com/package/git0x" target="_blank" rel="noopener noreferrer"
@@ -96,8 +99,9 @@
               <span class="work-meta">ETHDenver 2026 — dual-track winner</span>
             </div>
             <p class="work-blurb">
-              On-chain homes that keep autonomous AI agents alive and paying their own gas, with identity and governance
-              built in.
+              Gives an AI agent a permanent on-chain identity — an NFT that owns its own wallet — and a heartbeat
+              contract that re-runs its strategy on a timer and reschedules itself, with no server in the loop. Six agents
+              live on Base Sepolia.
             </p>
             <div class="work-links">
               <a href="https://kayden-dao.vercel.app" target="_blank" rel="noopener noreferrer"
@@ -113,8 +117,9 @@
               <span class="work-meta">21 verified payments on Base Sepolia</span>
             </div>
             <p class="work-blurb">
-              A payment stream that releases stablecoin to an AI worker in proportion to the work it can prove, judged
-              on-chain.
+              Pays an AI worker by the checkpoint instead of all up front or all on delivery — it submits work to a
+              paywalled verifier, gets scored, and the escrow streams out USDC in proportion. 21 real payments settled on
+              Base Sepolia.
             </p>
             <div class="work-links">
               <a href="https://github.com/kushwahaamar-dev/scaffold" target="_blank" rel="noopener noreferrer"
@@ -135,8 +140,9 @@
               <span class="work-meta">research-grade Python library</span>
             </div>
             <p class="work-blurb">
-              An EEG library that reads psychiatric signals from brainwaves using a hybrid graph-and-transformer model —
-              packaged, tested, and continuously built.
+              An EEG library that classifies psychiatric conditions from raw recordings — a graph network for which
+              electrodes fire together, a transformer for how the signal moves over time. A big jump over the 38.5%
+              GNN+CNN baseline it was built to beat. Pip-installable, with self-supervised pretraining and ONNX export.
             </p>
             <div class="work-links">
               <a href="https://github.com/kushwahaamar-dev/eeginfra" target="_blank" rel="noopener noreferrer"
@@ -150,8 +156,9 @@
               <span class="work-meta">GDACS · NASA · NOAA</span>
             </div>
             <p class="work-blurb">
-              A disaster-response treasury that watches live hazard feeds, lets an AI weigh each release of aid, and pays
-              verified responders.
+              Watches live disaster feeds — GDACS, NASA, NOAA — every 60 seconds and asks an AI one question per event:
+              release aid, yes or no? A yes pays a pre-verified NGO from an on-chain vault; anything ambiguous defaults to
+              no, and only the AI’s own wallet can move the money.
             </p>
             <div class="work-links">
               <a href="https://sentinel-sigma-five.vercel.app" target="_blank" rel="noopener noreferrer"
@@ -168,28 +175,31 @@
         <div class="compact">
           <p class="compact-item">
             <a class="work-name" href="https://oa-th.wiki" target="_blank" rel="noopener noreferrer">Oath</a>
-            <span class="sep">—</span> a stake-backed promise an AI agent signs before it acts, and is slashed for
-            breaking
+            <span class="sep">—</span> a scoped, time-bound promise an agent and its user both sign on Solana before it
+            acts; break it and the stake is slashed on-chain, automatically
           </p>
           <p class="compact-item">
             <a class="work-name" href="https://v0id-one.vercel.app" target="_blank" rel="noopener noreferrer">ZeroGate</a>
-            <span class="sep">—</span> a pay-per-article paywall with an in-browser Polkadot light client and no accounts
+            <span class="sep">—</span> a paywall that takes one on-chain micro-payment instead of an account, verified by
+            a Polkadot light client running in the browser as WASM
           </p>
           <p class="compact-item">
             <a class="work-name" href="https://sol-opal-rho.vercel.app" target="_blank" rel="noopener noreferrer"
               >Kartein</a
             >
-            <span class="sep">—</span> a policy firewall that checks every AI agent’s payment against spending rules first
+            <span class="sep">—</span> a spending firewall between an AI agent and the chain that runs every payment
+            through 8 checks — limits, whitelist, budget, time window — and blocks it before settlement if any fail
           </p>
           <p class="compact-item">
             <a class="work-name" href="https://sorting-barrier.vercel.app" target="_blank" rel="noopener noreferrer"
               >Sorting Barrier</a
             >
-            <span class="sep">—</span> an interactive race between Dijkstra and 2025’s faster shortest-path algorithm
+            <span class="sep">—</span> a live map race between Dijkstra (1956) and the 2025 algorithm that finally beat
+            it, the first improvement to single-source shortest paths in about 40 years
           </p>
         </div>
         <p class="archive-link">
-          <a href="/projects">full archive →</a>
+          <a href="/projects/">full archive →</a>
         </p>
       </section>
 
@@ -202,9 +212,10 @@
               <span class="work-meta">Texas Tech · Honors research</span>
             </div>
             <p class="work-blurb">
-              Simulating how seizures spread across 76–998 brain regions with the Epileptor model, made roughly 1000×
-              faster than the pure-Python reference loop with Numba. Part of the lab’s work on suppressing seizure
-              activity through cognitive effort.
+              Simulating how a seizure spreads region to region across a brain — the kind of model used to test an
+              epilepsy surgery before the operation. I rewrote the simulation loop with Numba, which made runs about
+              1000× faster and let me scale from 76 up to 998 brain regions. It feeds the lab’s work on whether cognitive
+              effort can suppress a seizure.
             </p>
             <div class="work-links">
               <a href="https://github.com/kushwahaamar-dev/VESP-" target="_blank" rel="noopener noreferrer"
@@ -218,20 +229,24 @@
               <span class="work-meta">Accepted to the ACL 2026 Student Research Workshop</span>
             </div>
             <p class="work-blurb">
-              A benchmark measuring whether a small language model’s step-by-step reasoning actually drives its answer,
-              or just rationalizes one it already had.
+              A benchmark for whether a small model’s step-by-step reasoning actually drives its answer or just
+              rationalizes one it already had. The uncomfortable finding: bigger models got more accurate but less
+              faithful, and only 4–14% of answers were both correct and honestly reached.
             </p>
           </article>
         </div>
+        <p class="archive-link">
+          <a href="/writing/">writing →</a>
+        </p>
       </section>
 
       <section aria-labelledby="sec-recognition" data-animate style="animation-delay: 280ms">
         <h2 class="label" id="sec-recognition">Recognition</h2>
         <ul class="recognition">
-          <li>ETHDenver 2026 — dual-track winner (Nouns Builder · ADI Foundation), with Kayden</li>
+          <li>ETHDenver 2026 — dual-track winner (Nouns Builder, ADI Foundation), for Kayden</li>
           <li>TAMU Datathon 2025 — winner, HackMLH track</li>
-          <li>Hook ’Em Hacks — Best Use of Solana, with Oath</li>
-          <li>HackWesTX VI — dual winner (Gemini API · Web3)</li>
+          <li>Hook ’Em Hacks — Best Use of Solana, for Oath</li>
+          <li>HackWesTX VI — dual winner (Gemini API, Web3)</li>
         </ul>
       </section>
 

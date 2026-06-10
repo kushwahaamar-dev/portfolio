@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "writing": "node scripts/build-writing.mjs",
+    "predev": "node scripts/build-writing.mjs",
     "dev": "vite",
+    "prebuild": "node scripts/build-writing.mjs",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -18,6 +21,7 @@
     "@types/node": "^24.10.1",
     "eslint": "^9.39.1",
     "globals": "^16.5.0",
+    "marked": "^14.1.4",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4"
