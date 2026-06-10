@@ -1,6 +1,10 @@
 /* ─────────────────────────────────────────────────────────────
    amarkushwaha.com — one quiet column of text.
    No framework, no utility classes. The whole design lives here.
+
+   Type: Newsreader, glyph-subset and optically split —
+   a display cut (opsz 30) for the name, a text cut (opsz 18) for
+   everything else. System monospace for labels and metadata.
    ───────────────────────────────────────────────────────────── */
 
 @font-face {
@@ -8,27 +12,37 @@
   font-style: normal;
   font-weight: 200 800;
   font-display: swap;
-  src: url('/fonts/newsreader-var.woff2') format('woff2');
+  src: url('/fonts/text.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Newsreader';
   font-style: italic;
   font-weight: 200 800;
   font-display: swap;
-  src: url('/fonts/newsreader-italic-var.woff2') format('woff2');
+  src: url('/fonts/italic.woff2') format('woff2');
 }
-/* Metric-matched fallback so the swap doesn't shift the layout. */
+/* Display optical size — used only for the name. */
+@font-face {
+  font-family: 'Newsreader Display';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/display.woff2') format('woff2');
+}
+/* Georgia, metric-matched to Newsreader so the swap doesn't shift the layout.
+   Overrides derived from the real font metrics (2000 upm, x-height 852). */
 @font-face {
   font-family: 'Newsreader Fallback';
-  src: local('Georgia'), local('Times New Roman');
-  size-adjust: 96%;
-  ascent-override: 92%;
-  descent-override: 24%;
+  src: local('Georgia');
+  size-adjust: 88.48%;
+  ascent-override: 83.07%;
+  descent-override: 29.95%;
   line-gap-override: 0%;
 }
 
 :root {
   --serif: 'Newsreader', 'Newsreader Fallback', Georgia, 'Times New Roman', serif;
+  --serif-display: 'Newsreader Display', 'Newsreader Fallback', Georgia, serif;
   --mono: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
 
   --measure: 39rem;
@@ -82,7 +96,7 @@ body {
   font-size: 18px;
   line-height: 1.62;
   font-weight: 400;
-  font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'onum' 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -91,6 +105,8 @@ body {
 ::selection {
   background: var(--accent-soft);
   color: var(--strong);
+  text-shadow: none;
+  text-decoration-color: var(--accent-line);
 }
 
 a {
@@ -131,8 +147,10 @@ h2.label {
   font-family: var(--mono);
   font-size: var(--mono-sm);
   font-weight: 400;
+  font-variant-numeric: lining-nums tabular-nums;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  text-wrap: balance;
   color: var(--faint);
   margin: 0 0 1.4rem;
 }
@@ -140,10 +158,12 @@ h2.label {
 /* ── Masthead ───────────────────────────────────────────────── */
 
 .masthead h1 {
+  font-family: var(--serif-display);
   font-size: clamp(1.75rem, 5vw, 2rem);
   font-weight: 500;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   line-height: 1.15;
+  text-wrap: balance;
   color: var(--strong);
   margin: 0 0 1.4rem;
 }
@@ -163,12 +183,22 @@ h2.label {
   margin: 1.4rem 0 0;
   color: var(--dim);
   font-style: italic;
+  text-wrap: pretty;
 }
 
 .now strong {
   font-weight: 500;
   font-style: normal;
   color: var(--text);
+}
+
+.now-date {
+  font-family: var(--mono);
+  font-size: var(--mono-sm);
+  font-style: normal;
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: 0.04em;
+  color: var(--faint);
 }
 
 /* ── Work lists ─────────────────────────────────────────────── */
@@ -193,12 +223,14 @@ h2.label {
 .work-name {
   font-size: 1.18rem;
   font-weight: 500;
+  text-wrap: balance;
   color: var(--strong);
 }
 
 .work-meta {
   font-family: var(--mono);
   font-size: var(--mono-sm);
+  font-variant-numeric: lining-nums tabular-nums;
   letter-spacing: 0.02em;
   color: var(--faint);
 }
@@ -214,6 +246,7 @@ h2.label {
   margin-top: 0.5rem;
   font-family: var(--mono);
   font-size: var(--mono-md);
+  font-variant-numeric: lining-nums tabular-nums;
   letter-spacing: 0.01em;
   color: var(--faint);
 }
@@ -300,6 +333,7 @@ h2.label {
   margin: 0;
   font-family: var(--mono);
   font-size: var(--mono-md);
+  font-variant-numeric: lining-nums tabular-nums;
   letter-spacing: 0.01em;
   line-height: 2;
   color: var(--dim);
@@ -346,6 +380,7 @@ h2.label {
   border-top: 1px solid var(--rule);
   font-family: var(--mono);
   font-size: var(--mono-sm);
+  font-variant-numeric: lining-nums tabular-nums;
   letter-spacing: 0.01em;
   color: var(--faint);
   line-height: 1.8;
@@ -353,6 +388,27 @@ h2.label {
 
 .colophon a {
   text-decoration-color: var(--accent-line);
+}
+
+/* ── Archive page (/projects) ───────────────────────────────── */
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 2.5rem;
+  font-family: var(--mono);
+  font-size: var(--mono-md);
+  letter-spacing: 0.02em;
+  text-decoration-color: var(--accent-line);
+}
+
+.archive-group {
+  margin-top: 3rem;
+}
+
+.archive-intro {
+  margin: 0 0 0.5rem;
+  color: var(--dim);
+  text-wrap: pretty;
 }
 
 /* ── Motion: one staggered fade on load, nothing on scroll ──── */
