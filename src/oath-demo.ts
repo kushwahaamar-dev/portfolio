@@ -36,6 +36,7 @@ function el<K extends keyof HTMLElementTagNameMap>(
 }
 
 function mount(root: HTMLElement) {
+  root.classList.add('oath-demo');
   let spent = 0;
   let pending = 0;
   let active = true;

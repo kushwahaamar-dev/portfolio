@@ -1033,6 +1033,139 @@ h2.label {
   }
 }
 
+/* ── RAWRB demo (in the "right answer, wrong reason" post) ──── */
+
+.rawrb-q {
+  margin: 0 0 1.1rem;
+  font-style: italic;
+  color: var(--text);
+}
+
+.rawrb-cot-label {
+  margin: 1.1rem 0 0.5rem;
+  font-family: var(--mono);
+  font-size: var(--mono-sm);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.rawrb-steps {
+  margin: 0;
+  padding-left: 1.3rem;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--dim);
+}
+
+.rawrb-steps li {
+  margin-bottom: 0.2rem;
+}
+
+.rawrb-steps s {
+  color: var(--faint);
+  text-decoration-thickness: 1px;
+}
+
+.rawrb-steps mark {
+  background: var(--warn-soft);
+  color: var(--warn);
+  padding: 0 0.2em;
+  border-radius: 3px;
+}
+
+.rawrb-answer {
+  margin: 0.7rem 0 0;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.rawrb-answer b {
+  font-weight: 500;
+  color: var(--strong);
+}
+
+.rawrb-a-label {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.rawrb-seg {
+  display: inline-flex;
+  margin-bottom: 0.8rem;
+  border: 1px solid var(--rule);
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.rawrb-seg-btn {
+  font: inherit;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.01em;
+  color: var(--dim);
+  background: none;
+  border: 0;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.rawrb-seg-btn + .rawrb-seg-btn {
+  border-left: 1px solid var(--rule);
+}
+
+.rawrb-seg-btn[aria-pressed='true'] {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.rawrb-probes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.rawrb-verdict {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--rule);
+}
+
+.rawrb-verdict[data-state='unfaithful'] {
+  border-color: var(--warn);
+  background: var(--warn-soft);
+}
+
+.rawrb-verdict[data-state='faithful'] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.rawrb-verdict p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.rawrb-verdict-punch {
+  margin-top: 0.4rem !important;
+  font-weight: 500;
+  color: var(--strong) !important;
+}
+
+.rawrb-meter {
+  margin-top: 0.7rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--faint);
+}
+
 /* ── Motion: one staggered fade on load, nothing on scroll ──── */
 
 @media (prefers-reduced-motion: no-preference) {

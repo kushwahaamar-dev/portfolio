@@ -99,7 +99,8 @@ const entries: Entry[] = [
   { label: 'Kayden — agent homes', group: 'project', run: ext('https://kayden-dao.vercel.app') },
   { label: 'Oath — agent guardrail', group: 'project', run: ext('https://oa-th.wiki') },
   { label: 'Universal Sentinel', group: 'project', run: ext('https://sentinel-sigma-five.vercel.app') },
-  { label: 'Play the Oath demo', group: 'do', keywords: 'interactive try', run: go('/writing/delete-the-oracle/') },
+  { label: 'Play the Oath demo', group: 'do', keywords: 'interactive try agent', run: go('/writing/delete-the-oracle/') },
+  { label: 'Break a model’s reasoning (RAWRB demo)', group: 'do', keywords: 'interactive try ml ai faithfulness', run: go('/writing/right-answer-wrong-reason/') },
   { label: 'Copy email', group: 'do', keywords: 'contact mail', run: copyEmail },
   { label: 'Toggle theme', group: 'do', keywords: 'dark light mode', run: cycleTheme },
   { label: 'GitHub', group: 'link', run: ext('https://github.com/kushwahaamar-dev') },
@@ -290,4 +291,8 @@ buildSiteControls();
 
 if (document.querySelector('[data-oath-demo]')) {
   import('./oath-demo').then((m) => m.initOathDemos());
+}
+
+if (document.querySelector('[data-rawrb-demo]')) {
+  import('./rawrb-demo').then((m) => m.initRawrbDemos());
 }
