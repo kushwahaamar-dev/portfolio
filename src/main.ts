@@ -45,6 +45,15 @@ function renderToggle() {
   toggleBtn.setAttribute('aria-label', `Theme: ${t}. Click to change.`);
 }
 
+function cycleTheme() {
+  const next: Record<Theme, Theme> = { system: 'light', light: 'dark', dark: 'system' };
+  const t = next[storedTheme()];
+  applyTheme(t);
+  renderToggle();
+  const resolved = t === 'system' ? `system (${mq.matches ? 'dark' : 'light'})` : t;
+  announce(`Theme: ${resolved}`);
+}
+
 function buildSiteControls() {
   if (!colophon) return;
   const wrap = document.createElement('span');
@@ -53,11 +62,7 @@ function buildSiteControls() {
   toggleBtn = document.createElement('button');
   toggleBtn.type = 'button';
   toggleBtn.className = 'theme-toggle';
-  toggleBtn.addEventListener('click', () => {
-    const next: Record<Theme, Theme> = { system: 'light', light: 'dark', dark: 'system' };
-    applyTheme(next[storedTheme()]);
-    renderToggle();
-  });
+  toggleBtn.addEventListener('click', cycleTheme);
   renderToggle();
 
   const hint = document.createElement('button');
@@ -96,7 +101,7 @@ const entries: Entry[] = [
   { label: 'Universal Sentinel', group: 'project', run: ext('https://sentinel-sigma-five.vercel.app') },
   { label: 'Play the Oath demo', group: 'do', keywords: 'interactive try', run: go('/writing/delete-the-oracle/') },
   { label: 'Copy email', group: 'do', keywords: 'contact mail', run: copyEmail },
-  { label: 'Toggle theme', group: 'do', keywords: 'dark light mode', run: () => { const n: Record<Theme, Theme> = { system: 'light', light: 'dark', dark: 'system' }; applyTheme(n[storedTheme()]); renderToggle(); } },
+  { label: 'Toggle theme', group: 'do', keywords: 'dark light mode', run: cycleTheme },
   { label: 'GitHub', group: 'link', run: ext('https://github.com/kushwahaamar-dev') },
   { label: 'X / Twitter', group: 'link', run: ext('https://x.com/amarkushwaha__') },
   { label: 'Résumé (PDF)', group: 'link', run: ext('/Amar_Kushwaha_Resume.pdf') },
@@ -108,6 +113,7 @@ let input: HTMLInputElement | null = null;
 let list: HTMLUListElement | null = null;
 let filtered: Entry[] = [];
 let active = 0;
+let lastFocus: HTMLElement | null = null;
 
 function buildPalette() {
   dialog = document.createElement('dialog');
@@ -119,16 +125,29 @@ function buildPalette() {
   input.type = 'text';
   input.placeholder = 'Jump to a page, project, or action…';
   input.setAttribute('aria-label', 'Search commands');
+  input.setAttribute('role', 'combobox');
+  input.setAttribute('aria-expanded', 'true');
+  input.setAttribute('aria-controls', 'cmdk-list');
+  input.setAttribute('aria-autocomplete', 'list');
+  input.autocapitalize = 'off';
+  input.autocomplete = 'off';
+  input.spellcheck = false;
 
   list = document.createElement('ul');
   list.className = 'cmdk-list';
+  list.id = 'cmdk-list';
+  list.setAttribute('role', 'listbox');
+  list.setAttribute('aria-label', 'Commands');
 
   dialog.append(input, list);
   document.body.append(dialog);
 
   input.addEventListener('input', () => render(input!.value));
   input.addEventListener('keydown', onKey);
-  dialog.addEventListener('close', () => list && (list.innerHTML = ''));
+  dialog.addEventListener('close', () => {
+    if (list) list.innerHTML = '';
+    lastFocus?.focus();
+  });
   dialog.addEventListener('click', (e) => {
     if (e.target === dialog) dialog!.close();
   });
@@ -152,6 +171,7 @@ function render(query: string) {
   filtered.forEach((e, i) => {
     const li = document.createElement('li');
     li.className = 'cmdk-item';
+    li.id = `cmdk-opt-${i}`;
     li.setAttribute('role', 'option');
     li.setAttribute('aria-selected', String(i === active));
     const label = document.createElement('span');
@@ -173,7 +193,10 @@ function setActive(i: number) {
   [...list.children].forEach((c, idx) => {
     if (c instanceof HTMLElement && c.classList.contains('cmdk-item')) {
       c.setAttribute('aria-selected', String(idx === active));
-      if (idx === active) c.scrollIntoView({ block: 'nearest' });
+      if (idx === active) {
+        c.scrollIntoView({ block: 'nearest' });
+        input?.setAttribute('aria-activedescendant', c.id);
+      }
     }
   });
 }
@@ -198,6 +221,7 @@ function onKey(e: KeyboardEvent) {
 }
 
 function openPalette() {
+  lastFocus = document.activeElement as HTMLElement | null;
   if (!dialog) buildPalette();
   render('');
   if (input) input.value = '';
@@ -235,8 +259,33 @@ function copyEmail() {
 
 copyBtn?.addEventListener('click', copyEmail);
 
+/* ── Accessibility scaffolding ───────────────────────────────── */
+
+const liveRegion = document.createElement('span');
+liveRegion.className = 'sr-only';
+liveRegion.setAttribute('role', 'status');
+liveRegion.setAttribute('aria-live', 'polite');
+
+function announce(message: string) {
+  liveRegion.textContent = '';
+  // a fresh text node on the next frame so repeated messages re-announce
+  requestAnimationFrame(() => (liveRegion.textContent = message));
+}
+
+function installSkipLink() {
+  const main = document.querySelector('main');
+  if (main && !main.id) main.id = 'main';
+  const skip = document.createElement('a');
+  skip.className = 'skip-link';
+  skip.href = '#main';
+  skip.textContent = 'Skip to content';
+  document.body.prepend(skip);
+  document.body.append(liveRegion);
+}
+
 /* ── Boot ────────────────────────────────────────────────────── */
 
+installSkipLink();
 buildSiteControls();
 
 if (document.querySelector('[data-oath-demo]')) {

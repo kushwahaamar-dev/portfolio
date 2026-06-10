@@ -18,21 +18,22 @@
     <meta name="theme-color" content="#fbfbf9" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#161615" media="(prefers-color-scheme: dark)" />
 
+    <link rel="alternate" type="application/rss+xml" title="Amar Kushwaha — Writing" href="/feed.xml" />
     <link rel="preload" href="/fonts/text.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/display.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/src/index.css" />
   </head>
 
   <body>
-    <main class="band">
-      <header class="masthead" data-animate style="animation-delay: 0ms">
-        <a class="back-link" href="/">← Amar Kushwaha</a>
-        <h1>Projects</h1>
-        <p class="archive-intro">
-          The longer list — agent guardrails, EEG and brain-network research, and the hackathon builds I’d still defend.
-          Live links where they exist, source otherwise.
-        </p>
-      </header>
+    <header class="masthead band" data-animate style="animation-delay: 0ms">
+      <nav aria-label="Back"><a class="back-link" href="/">← Amar Kushwaha</a></nav>
+      <h1>Projects</h1>
+      <p class="archive-intro">
+        The longer list — agent guardrails, EEG and brain-network research, and the hackathon builds I’d still defend.
+        Live links where they exist, source otherwise.
+      </p>
+    </header>
+    <main id="main" class="band">
 
       <section class="archive-group" aria-labelledby="g-highlights" data-animate style="animation-delay: 70ms">
         <h2 class="label" id="g-highlights">Highlights</h2>
@@ -77,7 +78,7 @@
           </p>
           <p class="compact-item">
             <a class="work-name" href="https://github.com/kushwahaamar-dev/Kaelix" target="_blank" rel="noopener noreferrer">Kaelix</a>
-            <span class="sep">—</span> lets a DeFi trading agent prove it stayed inside your private risk rules without revealing your balances, your trades, or the rules themselves — built on Midnight
+            <span class="sep">—</span> proves a trading agent obeyed your private risk rules without revealing them, built on Midnight
           </p>
         </div>
       </section>
@@ -138,7 +139,8 @@
     <footer class="colophon band" data-animate style="animation-delay: 350ms">
       <a href="/">← back to amarkushwaha.com</a>
       <br />
-      Everything public lives on <a href="https://github.com/kushwahaamar-dev" target="_blank" rel="noopener noreferrer">GitHub</a>.
+      Everything public lives on <a href="https://github.com/kushwahaamar-dev" target="_blank" rel="noopener noreferrer">GitHub</a>;
+      how this site is built is in the <a href="/colophon">colophon</a>.
     </footer>
 
     <script type="module" src="/src/main.ts"></script>

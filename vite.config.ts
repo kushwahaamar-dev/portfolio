@@ -5,7 +5,7 @@ import { globSync } from 'node:fs';
 // the writing index, and one file per post (generated into writing/ by
 // scripts/build-writing.mjs before the build runs).
 const pages = Object.fromEntries(
-  ['index.html', 'projects/index.html', ...globSync('writing/**/index.html')].map((p) => [
+  ['index.html', 'projects/index.html', 'colophon/index.html', ...globSync('writing/**/index.html')].map((p) => [
     p.replace(/\/index\.html$/, '').replace(/\.html$/, '') || 'main',
     p,
   ]),

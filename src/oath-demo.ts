@@ -52,6 +52,8 @@ function mount(root: HTMLElement) {
 
   const recordBtn = el('button', { class: 'oath-btn oath-btn-primary', textContent: 'record action' });
   const result = el('div', { class: 'oath-result' });
+  result.setAttribute('role', 'status');
+  result.setAttribute('aria-live', 'polite');
   result.hidden = true;
 
   const nodes = {
