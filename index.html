@@ -86,11 +86,7 @@
               <span class="work-name">git0x</span>
               <span class="work-meta">on npm · 70 detection patterns</span>
             </div>
-            <p class="work-blurb">
-              A command-line scanner that installs as a git pre-commit hook, so a leaked AWS key or private key gets
-              blocked before the commit lands — not flagged after it’s already pushed. 70 patterns, with SARIF output for
-              GitHub code scanning.
-            </p>
+            <p class="work-blurb">Blocks leaked API keys and secrets before they ever reach a commit.</p>
             <div class="work-links">
               <a href="https://www.npmjs.com/package/git0x" target="_blank" rel="noopener noreferrer"
                 aria-label="git0x on npm">npm</a>
@@ -105,9 +101,7 @@
               <span class="work-meta">ETHDenver 2026 — dual-track winner</span>
             </div>
             <p class="work-blurb">
-              Gives an AI agent a permanent on-chain identity — an NFT that owns its own wallet — and a heartbeat
-              contract that re-runs its strategy on a timer and reschedules itself, with no server in the loop. Six agents
-              live on Base Sepolia.
+              A permanent on-chain home for an AI agent — its own identity, wallet, and a self-running heartbeat.
             </p>
             <div class="work-links">
               <a href="https://kayden-dao.vercel.app" target="_blank" rel="noopener noreferrer"
@@ -122,11 +116,7 @@
               <span class="work-name">Sonsensus</span>
               <span class="work-meta">21 verified payments on Base Sepolia</span>
             </div>
-            <p class="work-blurb">
-              Pays an AI worker by the checkpoint instead of all up front or all on delivery — it submits work to a
-              paywalled verifier, gets scored, and the escrow streams out USDC in proportion. 21 real payments settled on
-              Base Sepolia.
-            </p>
+            <p class="work-blurb">Pays an AI worker by the checkpoint — USDC streamed in proportion to work it can prove.</p>
             <div class="work-links">
               <a href="https://github.com/kushwahaamar-dev/scaffold" target="_blank" rel="noopener noreferrer"
                 aria-label="Sonsensus source on GitHub">source</a>
@@ -146,9 +136,7 @@
               <span class="work-meta">research-grade Python library</span>
             </div>
             <p class="work-blurb">
-              An EEG library that classifies psychiatric conditions from raw recordings — a graph network for which
-              electrodes fire together, a transformer for how the signal moves over time. A big jump over the 38.5%
-              GNN+CNN baseline it was built to beat. Pip-installable, with self-supervised pretraining and ONNX export.
+              Reads psychiatric signals from raw EEG with a hybrid graph-and-transformer model.
             </p>
             <div class="work-links">
               <a href="https://github.com/kushwahaamar-dev/eeginfra" target="_blank" rel="noopener noreferrer"
@@ -162,9 +150,7 @@
               <span class="work-meta">GDACS · NASA · NOAA</span>
             </div>
             <p class="work-blurb">
-              Watches live disaster feeds — GDACS, NASA, NOAA — every 60 seconds and asks an AI one question per event:
-              release aid, yes or no? A yes pays a pre-verified NGO from an on-chain vault; anything ambiguous defaults to
-              no, and only the AI’s own wallet can move the money.
+              An AI-gated treasury that releases disaster aid from live feeds — and defaults to no.
             </p>
             <div class="work-links">
               <a href="https://sentinel-sigma-five.vercel.app" target="_blank" rel="noopener noreferrer"
@@ -181,27 +167,24 @@
         <div class="compact">
           <p class="compact-item">
             <a class="work-name" href="https://oa-th.wiki" target="_blank" rel="noopener noreferrer">Oath</a>
-            <span class="sep">—</span> a scoped, time-bound promise an agent and its user both sign on Solana before it
-            acts; break it and the stake is slashed on-chain, automatically
+            <span class="sep">—</span> a stake-backed promise an agent signs before it acts; break it, get slashed on-chain
           </p>
           <p class="compact-item">
             <a class="work-name" href="https://v0id-one.vercel.app" target="_blank" rel="noopener noreferrer">ZeroGate</a>
-            <span class="sep">—</span> a paywall that takes one on-chain micro-payment instead of an account, verified by
-            a Polkadot light client running in the browser as WASM
+            <span class="sep">—</span> a one-payment paywall verified by an in-browser Polkadot light client, no accounts
           </p>
           <p class="compact-item">
             <a class="work-name" href="https://sol-opal-rho.vercel.app" target="_blank" rel="noopener noreferrer"
               >Kartein</a
             >
-            <span class="sep">—</span> a spending firewall between an AI agent and the chain that runs every payment
-            through 8 checks — limits, whitelist, budget, time window — and blocks it before settlement if any fail
+            <span class="sep">—</span> a spending firewall that checks every agent payment against your rules before it
+            settles
           </p>
           <p class="compact-item">
             <a class="work-name" href="https://sorting-barrier.vercel.app" target="_blank" rel="noopener noreferrer"
               >Sorting Barrier</a
             >
-            <span class="sep">—</span> a live map race between Dijkstra (1956) and the 2025 algorithm that finally beat
-            it, the first improvement to single-source shortest paths in about 40 years
+            <span class="sep">—</span> Dijkstra vs the 2025 algorithm that finally beat it, raced on a live map
           </p>
         </div>
         <p class="archive-link">
@@ -218,10 +201,7 @@
               <span class="work-meta">Texas Tech · Honors research</span>
             </div>
             <p class="work-blurb">
-              Simulating how a seizure spreads region to region across a brain — the kind of model used to test an
-              epilepsy surgery before the operation. I rewrote the simulation loop with Numba, which made runs about
-              1000× faster and let me scale from 76 up to 998 brain regions. It feeds the lab’s work on whether cognitive
-              effort can suppress a seizure.
+              Simulating how a seizure spreads across the brain — ~1000× faster after a Numba rewrite, up to 998 regions.
             </p>
             <div class="work-links">
               <a href="https://github.com/kushwahaamar-dev/VESP-" target="_blank" rel="noopener noreferrer"
@@ -235,9 +215,7 @@
               <span class="work-meta">Accepted to the ACL 2026 Student Research Workshop</span>
             </div>
             <p class="work-blurb">
-              A benchmark for whether a small model’s step-by-step reasoning actually drives its answer or just
-              rationalizes one it already had. The uncomfortable finding: bigger models got more accurate but less
-              faithful, and only 4–14% of answers were both correct and honestly reached.
+              Does a small model’s step-by-step reasoning actually drive its answer, or just rationalize it?
             </p>
           </article>
         </div>
