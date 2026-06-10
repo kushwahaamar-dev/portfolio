@@ -204,6 +204,15 @@ h2.label {
   color: var(--strong);
 }
 
+.intro em {
+  font-style: italic;
+}
+
+.intro-aside {
+  margin-top: 1.15rem;
+  color: var(--dim);
+}
+
 .now {
   margin: 1.4rem 0 0;
   color: var(--dim);
